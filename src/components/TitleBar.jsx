@@ -19,6 +19,8 @@ import { faGithub as GitHubIcon } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as EXTERNAL_LINKS from "../constants/externalUrls";
 
+let setThemeColour = () => {};
+
 const styles = (theme) => ({
   root: {
     flexGrow: 1,

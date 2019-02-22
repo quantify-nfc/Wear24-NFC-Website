@@ -33,6 +33,7 @@ let getThemeColour = () => {
     themeType = c.get("theme");
   }
 
+  console.log(themeType);
   return themeType;
 };
 
