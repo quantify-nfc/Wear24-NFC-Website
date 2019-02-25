@@ -4,6 +4,7 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { blue, teal } from "@material-ui/core/colors/";
 import TitleBar from "./components/TitleBar";
 import Cookies from "universal-cookie";
+import Scrollbars from "react-custom-scrollbars";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
@@ -14,9 +15,9 @@ import LandingPage from "./pages/Landing/";
 import AdminPage from "./pages/Admin/";
 import BlogPage from "./pages/Blog/";
 import DownloadPage from "./pages/Download/";
-import WikiPage from "./pages/Blog/";
+import DocumentationPage from "./pages/Documentation/";
 
-let getThemeColour = () => {
+const getThemeColour = () => {
   let c = new Cookies();
 
   let themeType = c.get("theme");
@@ -33,52 +34,141 @@ let getThemeColour = () => {
     themeType = c.get("theme");
   }
 
-  console.log(themeType);
   return themeType;
 };
 
-let getThemeObject = () => {
-  let themeType = getThemeColour();
-
-  return {
-    palette: {
-      type: themeType,
-      primary: {
-        main: blue[800],
+class App extends Component {
+  state = {
+    theme: {
+      palette: {
+        type: getThemeColour(),
+        primary: {
+          main: blue[800],
+        },
+        secondary: {
+          main: teal["A700"],
+        },
+        contrastThreshold: 3,
       },
-      secondary: {
-        main: teal["A700"],
+      typography: {
+        useNextVariants: true,
+        fontFamily: [
+          "'Manrope'",
+          "'Roboto'",
+          "'Segoe UI'",
+          "'Helvetica Neue'",
+          "'Arial'",
+          "sans-serif",
+        ].join(","),
+        body1: {
+          fontFamily: [
+            "'Roboto'",
+            "'Manrope'",
+            "'Segoe UI'",
+            "'Helvetica Neue'",
+            "'Arial'",
+            "sans-serif",
+          ].join(","),
+        },
+        body2: {
+          fontFamily: [
+            "'Roboto'",
+            "'Manrope'",
+            "'Segoe UI'",
+            "'Helvetica Neue'",
+            "'Arial'",
+            "sans-serif",
+          ].join(","),
+        },
       },
-    },
-    typography: {
-      useNextVariants: true,
-      fontFamily: [
-        "'Manrope'",
-        "'Roboto'",
-        "'Segoe UI'",
-        "'Helvetica Neue'",
-        "'Arial'",
-        "sans-serif",
-      ].join(","),
+      overrides: {
+        MuiButton: {
+          text: {
+            letterSpacing: "2px",
+          },
+        },
+      },
     },
   };
-};
 
-const theme = createMuiTheme(getThemeObject(), "Default");
-
-const styles = {
-  main: {},
-};
-
-class App extends Component {
   render() {
+    const { theme } = this.state;
+
+    //let getThemeObject = () => {};
+
+    const setThemeColour = () => {
+      let dark = theme.palette.type === "dark";
+      let c = new Cookies();
+      let t = !dark ? "dark" : "light";
+
+      c.set("theme", t);
+      let newTheme = {
+        palette: {
+          type: t,
+          primary: {
+            main: blue[800],
+          },
+          secondary: {
+            main: teal["A700"],
+          },
+          contrastThreshold: 3,
+        },
+        typography: {
+          useNextVariants: true,
+          fontFamily: [
+            "'Manrope'",
+            "'Roboto'",
+            "'Segoe UI'",
+            "'Helvetica Neue'",
+            "'Arial'",
+            "sans-serif",
+          ].join(","),
+          body1: {
+            fontFamily: [
+              "'Roboto'",
+              "'Manrope'",
+              "'Segoe UI'",
+              "'Helvetica Neue'",
+              "'Arial'",
+              "sans-serif",
+            ].join(","),
+          },
+          body2: {
+            fontFamily: [
+              "'Roboto'",
+              "'Manrope'",
+              "'Segoe UI'",
+              "'Helvetica Neue'",
+              "'Arial'",
+              "sans-serif",
+            ].join(","),
+          },
+        },
+        overrides: {
+          MuiButton: {
+            root: {
+              letterSpacing: "2px",
+            },
+          },
+        },
+      };
+
+      this.setState({ theme: newTheme });
+    };
+
+    const muiTheme = createMuiTheme(theme);
+
+    const styles = {
+      main: {},
+    };
+
     return (
       <>
-        <Router>
-          <>
-            <MuiThemeProvider theme={theme}>
+        <Scrollbars autoHide autoHeight autoHeightMax="100vh">
+          <Router>
+            <MuiThemeProvider theme={muiTheme}>
               <CssBaseline />
-              <TitleBar />
+              <TitleBar changeTheme={setThemeColour} />
               {/* Main page content below */}
               <main style={styles.main}>
                 <Route
@@ -86,18 +176,27 @@ class App extends Component {
                   path={ROUTES.HOME}
                   component={LandingPage}
                 />
-                <Route exact={true} path={ROUTES.BLOG} component={AdminPage} />
+                <Route exact={true} path={ROUTES.BLOG} component={BlogPage} />
                 <Route
                   exact={true}
                   path={ROUTES.DOWNLOAD}
                   component={DownloadPage}
                 />
-                <Route exact={true} path={ROUTES.WIKI} component={WikiPage} />
+                <Route
+                  exact={true}
+                  path={ROUTES.WIKI + "/*"}
+                  component={DocumentationPage}
+                />
+                <Route
+                  exact={true}
+                  path={ROUTES.WIKI}
+                  component={DocumentationPage}
+                />
                 <Route exact={true} path={ROUTES.ADMIN} component={AdminPage} />
               </main>
             </MuiThemeProvider>
-          </>
-        </Router>
+          </Router>
+        </Scrollbars>
       </>
     );
   }

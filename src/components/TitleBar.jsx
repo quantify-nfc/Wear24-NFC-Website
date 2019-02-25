@@ -9,17 +9,18 @@ import {
   SwipeableDrawer,
   Menu,
   MenuItem,
+  Tooltip,
 } from "@material-ui/core";
-import {
-  Menu as MenuIcon,
-  InvertColors as SwitchThemeIcon,
-} from "@material-ui/icons";
-import NavDrawerContent from "./NavDrawerContent";
+import MediaQuery from "react-responsive";
+
+import { Menu as MenuIcon } from "@material-ui/icons";
+import LightbulbIcon from "mdi-react/LightbulbIcon";
+import LightbulbOutlineIcon from "mdi-react/LightbulbOutlineIcon";
 import { faGithub as GitHubIcon } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as EXTERNAL_LINKS from "../constants/externalUrls";
 
-let setThemeColour = () => {};
+import NavDrawerContent from "./NavDrawerContent";
+import * as EXTERNAL_LINKS from "../constants/externalUrls";
 
 const styles = (theme) => ({
   root: {
@@ -28,9 +29,12 @@ const styles = (theme) => ({
   grow: {
     flexGrow: 1,
   },
+  siteTitle: {
+    marginLeft: 8,
+  },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20,
+    marginRight: 16,
   },
   list: {
     width: 250,
@@ -39,7 +43,7 @@ const styles = (theme) => ({
     width: "auto",
   },
   button: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
   },
   noLinkStyling: {
     textDecoration: "none",
@@ -74,7 +78,7 @@ class TitleBar extends Component {
   render() {
     // const { auth } = this.state;
 
-    const { classes } = this.props;
+    const { classes, theme, changeTheme } = this.props;
     const { ghMenuAnchor } = this.state;
     const ghMenuOpen = Boolean(ghMenuAnchor);
 
@@ -93,10 +97,10 @@ class TitleBar extends Component {
 
     return (
       <div className={this.elStyles.root}>
-        <AppBar position="fixed" color="primary">
+        <AppBar position="fixed" color="primary" elevation={2}>
           <Toolbar>
             <IconButton
-              style={this.elStyles.menuButton}
+              className={classes.menuButton}
               color="inherit"
               aria-label="Menu"
               onClick={this.showDrawer}
@@ -104,24 +108,49 @@ class TitleBar extends Component {
               <MenuIcon />
             </IconButton>
 
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              Quantify - The Wear24 NFC Project
+            <Typography
+              variant="h6"
+              color="inherit"
+              className={[classes.grow, classes.siteTitle]}
+            >
+              Quantify
+              <MediaQuery query="(min-width: 600px)">
+                <> - The Wear24 NFC Project</>
+              </MediaQuery>
             </Typography>
 
-            <IconButton color="inherit" className={classes.button}>
-              <SwitchThemeIcon />
-            </IconButton>
-
-            <IconButton
-              color="inherit"
-              className={classes.button}
-              aria-label="GitHub Repositories"
-              aria-owns={ghMenuOpen ? "ghMenu" : undefined}
-              aria-haspopup="true"
-              onClick={this.openGithubMenu}
+            <Tooltip
+              title="Toggle light/dark theme"
+              aria-label="Toggle light/dark theme"
             >
-              <FontAwesomeIcon icon={GitHubIcon} />
-            </IconButton>
+              <IconButton
+                color="inherit"
+                className={classes.button}
+                onClick={changeTheme}
+              >
+                {theme.palette.type === "dark" ? (
+                  <LightbulbOutlineIcon />
+                ) : (
+                  <LightbulbIcon />
+                )}
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip
+              title="GitHub repository links"
+              aria-label="GitHub repository links"
+            >
+              <IconButton
+                color="inherit"
+                className={classes.button}
+                aria-label="GitHub Repositories"
+                aria-owns={ghMenuOpen ? "ghMenu" : undefined}
+                aria-haspopup="true"
+                onClick={this.openGithubMenu}
+              >
+                <FontAwesomeIcon icon={GitHubIcon} />
+              </IconButton>
+            </Tooltip>
 
             <Menu
               id="ghMenu"
@@ -144,7 +173,7 @@ class TitleBar extends Component {
             </Menu>
           </Toolbar>
         </AppBar>
-        <div style={{ marginTop: "72px" }} />
+        <div style={{ marginTop: "64px" }} />
         <SwipeableDrawer
           open={this.state.shown}
           anchor="left"
@@ -168,6 +197,7 @@ class TitleBar extends Component {
 TitleBar.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  changeTheme: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(TitleBar);
