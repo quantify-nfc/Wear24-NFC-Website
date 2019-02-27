@@ -38,35 +38,37 @@ class NavDrawerContent extends Component {
     return (
       <>
         <List>
-          {[{ text: "Home", url: ROUTES.HOME, icon: faHome }].map(
-            (item, index) => (
-              <ListItem button key={item.text} to={item.url} component={Link}>
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={item.icon} fixedWidth />
-                </ListItemIcon>
-                <ListItemText primary={item.text} />
-              </ListItem>
-            )
-          )}
-        </List>
-        <Divider />
-        <List>
-          {[{ text: "Blog", url: ROUTES.BLOG, icon: faCommentAlt }].map(
-            (item, index) => (
-              <ListItem button key={item.text} to={item.url} component={Link}>
-                <ListItemIcon>
-                  <FontAwesomeIcon icon={item.icon} fixedWidth />
-                </ListItemIcon>
-                <ListItemText primary={item.text} />
-              </ListItem>
-            )
-          )}
+          {[{ text: "Home", url: ROUTES.HOME, icon: faHome }].map((item) => (
+            <ListItem button key={item.text} to={item.url} component={Link}>
+              <ListItemIcon>
+                <FontAwesomeIcon icon={item.icon} fixedWidth />
+              </ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
         </List>
         <Divider />
         <List>
           {[
-            { text: "Downloads", url: ROUTES.BLOG, icon: faDownload },
-            { text: "Documentation", url: ROUTES.BLOG, icon: faBookOpen },
+            { text: "Development Blog", url: ROUTES.BLOG, icon: faCommentAlt },
+          ].map((item) => (
+            <ListItem button key={item.text} to={item.url} component={Link}>
+              <ListItemIcon>
+                <FontAwesomeIcon icon={item.icon} fixedWidth />
+              </ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {[
+            {
+              text: "Downloads & Source",
+              url: ROUTES.DOWNLOAD,
+              icon: faDownload,
+            },
+            { text: "Documentation", url: ROUTES.WIKI, icon: faBookOpen },
           ].map((item, index) => (
             <ListItem button key={item.text} to={item.url} component={Link}>
               <ListItemIcon>

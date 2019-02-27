@@ -20,7 +20,7 @@ import DownloadIcon from "mdi-react/DownloadIcon";
 import ForumIcon from "mdi-react/ForumIcon";
 import * as ROUTES from "../../constants/routes";
 
-import WearOSBackdrop from "../../img/wearos-backdrop.png";
+import WearOSBackdropPNG from "../../img/wearos-backdrop.png";
 
 const styles = (theme) => ({
   center: {
@@ -44,9 +44,9 @@ const styles = (theme) => ({
   textoutline: {
     "-webkit-font-smoothing": "antialiased",
     "-moz-osx-font-smoothing": "grayscale",
-    "-webkit-text-stroke": "0.45px black",
+    "-webkit-text-stroke": "0.45px rgba(0, 0, 0, 0.87)",
     textShadow:
-      "-1px -1px 0 #000,  1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000",
+      "-1px -1px 0 rgba(0, 0, 0, 0.87), 1px -1px 0 rgba(0, 0, 0, 0.87), -1px 1px 0 rgba(0, 0, 0, 0.87), 1px 1px 0 rgba(0, 0, 0, 0.87)",
   },
 });
 
@@ -65,7 +65,7 @@ class Landing extends Component {
             id="welcome"
             style={{
               padding: "9rem 2rem",
-              background: "url(" + WearOSBackdrop + ")",
+              backgroundImage: "url(" + WearOSBackdropPNG + ")",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -98,7 +98,7 @@ class Landing extends Component {
             id="welcome"
             style={{
               padding: "7rem 2rem",
-              background: "url(" + WearOSBackdrop + ")",
+              background: "url(" + WearOSBackdropPNG + ")",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -111,6 +111,7 @@ class Landing extends Component {
               align="center"
               gutterBottom={true}
               style={{ marginBottom: "3rem", fontWeight: 400 }}
+              className={classes.textoutline}
             >
               Welcome to Quantify
             </Typography>
@@ -119,6 +120,7 @@ class Landing extends Component {
               align="center"
               gutterBottom={true}
               style={{ fontWeight: 200 }}
+              className={classes.textoutline}
             >
               The "official" Wear24 ROM Project
             </Typography>
