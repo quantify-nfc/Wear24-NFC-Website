@@ -13,15 +13,28 @@ code {
     monospace;
 }
 
+a:not([role="button"]):not([role="menuitem"]) {
+  color: #00bfa6; /* Secondary colour from MUI theme */
+  transition: color 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover:not([role="button"]):not([role="menuitem"]) {
+  color: #00a090;
+}
+
 .linkContainer a.externalLink:link,
 .linkContainer a.externalLink:visited {
-  color: inherit;
+  color: inherit !important;
 }
 
-.linkContainer {
-  color: #03a9f4;
+.linkContainer,
+.linkContainer a.externalLink,
+.linkContainer svg.mdi-icon path {
+  color: #03a9f4 !important;
 }
 
-.linkContainer:hover {
-  color: #1e88e5;
+.linkContainer:hover,
+.linkContainer:hover a.externalLink,
+.linkContainer:hover svg.mdi-icon path {
+  color: #00bfa6 !important;
 }

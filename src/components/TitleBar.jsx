@@ -16,8 +16,8 @@ import MediaQuery from "react-responsive";
 import { Menu as MenuIcon } from "@material-ui/icons";
 import LightbulbIcon from "mdi-react/LightbulbIcon";
 import LightbulbOutlineIcon from "mdi-react/LightbulbOutlineIcon";
-import { faGithub as GitHubIcon } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import DiscordIcon from "mdi-react/DiscordIcon";
+import GithubCircleIcon from "mdi-react/GithubCircleIcon";
 
 import NavDrawerContent from "./NavDrawerContent";
 import * as EXTERNAL_LINKS from "../constants/externalUrls";
@@ -111,10 +111,10 @@ class TitleBar extends Component {
             <Typography
               variant="h6"
               color="inherit"
-              className={[classes.grow, classes.siteTitle]}
+              className={[classes.grow, classes.siteTitle].join(" ")}
             >
               Quantify
-              <MediaQuery query="(min-width: 600px)">
+              <MediaQuery query="(min-width: 650px)">
                 <> - The Wear24 NFC Project</>
               </MediaQuery>
             </Typography>
@@ -136,6 +136,19 @@ class TitleBar extends Component {
               </IconButton>
             </Tooltip>
 
+            <Tooltip title="Discord Server" aria-label="Discord Server">
+              <IconButton
+                color="inherit"
+                className={classes.button}
+                component="a"
+                target="_blank"
+                rel="noreferrer"
+                href="https://discord.gg/m2v6fQH"
+              >
+                <DiscordIcon />
+              </IconButton>
+            </Tooltip>
+
             <Tooltip
               title="GitHub repository links"
               aria-label="GitHub repository links"
@@ -148,7 +161,7 @@ class TitleBar extends Component {
                 aria-haspopup="true"
                 onClick={this.openGithubMenu}
               >
-                <FontAwesomeIcon icon={GitHubIcon} />
+                <GithubCircleIcon />
               </IconButton>
             </Tooltip>
 

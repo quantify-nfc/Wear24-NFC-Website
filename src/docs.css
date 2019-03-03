@@ -1,0 +1,27 @@
+.docs-dark {
+  color: #fff;
+}
+
+.docs-light {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+a.doc-anchor-link {
+  display: none;
+}
+
+.md-header-container:hover a.doc-anchor-link {
+  display: inline-block;
+  margin-left: 8px;
+  text-decoration: none;
+}
+
+.md-header-container *:not(a) {
+  float: left;
+}
+
+.md-header-container::after {
+  clear: both;
+  content: "";
+  display: table;
+}

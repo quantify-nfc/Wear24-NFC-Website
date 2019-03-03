@@ -161,17 +161,15 @@ const LandingGridContent = (classes) => {
               Blog
             </Typography>
             <Divider variant="middle" className={classes.dividerSpacing} />
-            <Typography variant="body1" color="textPrimary">
+            <Typography variant="body1" color="textPrimary" paragraph>
               We try to post regularly
               <span style={{ fontSize: "0.8em" }}>*</span> on our official
               development blog.
             </Typography>
-            <br />
-            <Typography variant="body1" color="textPrimary">
+            <Typography variant="body1" color="textPrimary" paragraph>
               Anyhow, make sure to take a look! It's where we keep a log of our
               progress, make announcements and also lay out our next steps.
             </Typography>
-            <br />
             <Typography
               variant="body1"
               color="textSecondary"
@@ -200,12 +198,11 @@ const LandingGridContent = (classes) => {
               Downloads
             </Typography>
             <Divider variant="middle" className={classes.dividerSpacing} />
-            <Typography variant="body1" color="textPrimary">
+            <Typography variant="body1" color="textPrimary" paragraph>
               We don't have any downloads up for offer yet as the project is
               still a work in progress.
             </Typography>
-            <br />
-            <Typography variant="body1" color="textPrimary">
+            <Typography variant="body1" color="textPrimary" paragraph>
               However, if you want to stay up-to-date with our progress join us
               on our{" "}
               <ExternalLink
@@ -227,7 +224,6 @@ const LandingGridContent = (classes) => {
               color="secondary"
               className={classes.button}
               component={Link}
-              disabled
               to={ROUTES.DOWNLOAD}
             >
               View Downloads
@@ -243,12 +239,11 @@ const LandingGridContent = (classes) => {
               Documentation
             </Typography>
             <Divider variant="middle" className={classes.dividerSpacing} />
-            <Typography variant="body1" color="textPrimary">
+            <Typography variant="body1" color="textPrimary" paragraph>
               We strive to include high quality documentation for the Quantify
               project so that anyone can use it.
             </Typography>
-            <br />
-            <Typography variant="body1" color="textPrimary">
+            <Typography variant="body1" color="textPrimary" paragraph>
               Learn how to take apart the watch, connect it to your computer,
               install the kernel &amp; ROM as well as much more.
             </Typography>

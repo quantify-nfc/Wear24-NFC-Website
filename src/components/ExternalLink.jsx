@@ -3,13 +3,16 @@ import PropTypes from "prop-types";
 import OpenInNewIcon from "mdi-react/OpenInNewIcon";
 
 class ExternalLink extends Component {
-  state = {};
   render() {
     const { url, title, text } = this.props;
 
+    let wrap = "nowrap";
+
+    if (text.length > 25) wrap = "initial";
+
     return (
       <>
-        <span className="linkContainer" style={{ whiteSpace: "nowrap" }}>
+        <span className="linkContainer" style={{ whiteSpace: wrap }}>
           <a
             className="externalLink"
             href={url}
@@ -28,7 +31,7 @@ class ExternalLink extends Component {
 
 ExternalLink.propTypes = {
   url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.any.isRequired,
   title: PropTypes.string,
 };
 
