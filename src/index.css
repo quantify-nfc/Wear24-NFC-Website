@@ -38,3 +38,10 @@ a:hover:not([role="button"]):not([role="menuitem"]) {
 .linkContainer:hover svg.mdi-icon path {
   color: #00bfa6 !important;
 }
+
+footer a:link,
+footer a:visited {
+  color: inherit;
+  text-decoration: underline;
+  margin: 8px;
+}

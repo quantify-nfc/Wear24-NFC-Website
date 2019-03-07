@@ -43,11 +43,11 @@ Before flashing ANYTHING, make sure you have a backup. If you don't and somethin
 
 To flash the ROM and Kernel, just boot into TWRP and go to `Install > ZIP` then select the ROM ZIP you transfered to the watch (should be in `/sdcard` if you followed instructions above).
 
-Swipe to flash and **follow the prompts carefully**.
+You will be asked if you want to install the Kernel and if you want to keep the Verizon Apps (Verizon Messages, Charging App, etc.) and if you want to use the new boot animation. By default, it will install the kernel, remove the Verizon apps, and use the new animation.
 
-You will be asked if you want to install the Kernel and if you want to install the Verizon Apps (Verizon Messages, Charging App, etc.).
+If you wait through the timeout, it will default to the usual setting. If you press the power button it will switch the option. Make sure to not press the power button while it's asking if you want to install the kernel. You can install it separately, but it's just extra effort.
 
-If you leave it, it means Yes. If you press the power button it means No. **Make sure to not press the power button while it's asking if you want to install the kernel.** You can install it separately, but it's just extra effort.
+**In general, unless you're a Verizon user or you're building from scratch, you don't have to press any buttons.**
 
 ---
 

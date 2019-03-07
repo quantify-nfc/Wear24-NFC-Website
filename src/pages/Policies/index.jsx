@@ -1,0 +1,1 @@
+export { CookiesPage } from "./cookies";

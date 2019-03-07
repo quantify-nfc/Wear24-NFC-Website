@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css?family=Volkhov:400, 700");
+#privacyAndCookiePolicyRoot .firstList {
+  counter-reset: chapter;
+}
+#privacyAndCookiePolicyRoot ol.clauses,
+#privacyAndCookiePolicyRoot ol.parties,
+#privacyAndCookiePolicyRoot ol.recitals {
+  margin-left: 0;
+  padding: 0 0 0 2em;
+}
+#privacyAndCookiePolicyRoot ol.clauses ol,
+#privacyAndCookiePolicyRoot ol.parties ol,
+#privacyAndCookiePolicyRoot ol.recitals ol {
+  margin-left: 0;
+  padding: 0 0 0 2em;
+}
+#privacyAndCookiePolicyRoot ol.clauses li,
+#privacyAndCookiePolicyRoot ol.parties li,
+#privacyAndCookiePolicyRoot ol.recitals li {
+  font-size: 15px !important;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+#privacyAndCookiePolicyRoot ol.clauses > li > ol > li {
+  list-style: lower-alpha !important;
+}
+#privacyAndCookiePolicyRoot ol.clauses > li > ol > li > ol > li {
+  list-style: lower-roman;
+}
+#privacyAndCookiePolicyRoot ol.clauses > li,
+#privacyAndCookiePolicyRoot ol.parties > li {
+  list-style-type: none;
+  counter-increment: chapter;
+}
+#privacyAndCookiePolicyRoot ol.parties > li:before,
+#privacyAndCookiePolicyRoot ol.clauses > li:before {
+  width: 2em;
+  margin-left: -2em;
+  display: inline-block;
+}
+#privacyAndCookiePolicyRoot ol.clauses > li:before {
+  content: counter(chapter) ".    ";
+}
+#privacyAndCookiePolicyRoot ol.parties > li:before {
+  content: "(" counter(chapter) ") ";
+}
+#privacyAndCookiePolicyRoot ol.recitals {
+  list-style: upper-alpha !important;
+}
+#privacyAndCookiePolicyRoot ol.clausesNested,
+#privacyAndCookiePolicyRoot ol.clausesNested ol {
+  counter-reset: item;
+  margin-left: 0;
+  padding-left: 0;
+}
+#privacyAndCookiePolicyRoot ol.clausesNested {
+  padding: 0 5em 0 5em;
+}
+#privacyAndCookiePolicyRoot ol.clausesNested li {
+  font-weight: bold;
+}
+#privacyAndCookiePolicyRoot ol.clausesNested li p,
+#privacyAndCookiePolicyRoot ol.clausesNested li li {
+  font-weight: normal;
+}
+#privacyAndCookiePolicyRoot ol.clausesNested li ol > li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+#privacyAndCookiePolicyRoot ol.clausesNested li p {
+  margin-top: 0;
+}
+#privacyAndCookiePolicyRoot ol.clausesNested > li,
+#privacyAndCookiePolicyRoot ol.clausesNested ol > li {
+  display: block;
+  position: relative;
+}
+#privacyAndCookiePolicyRoot ol.clausesNested > li:before,
+#privacyAndCookiePolicyRoot ol.clausesNested ol > li:before {
+  display: inline-block;
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+  width: 4em;
+  margin-left: -4em;
+}
+#privacyAndCookiePolicyRoot {
+  font-family: "Volkhov", serif !important;
+  font-size: 15px !important;
+  margin: 2em 4em 4em 4em !important;
+}
+#privacyAndCookiePolicyRoot h1 {
+  font-family: "Volkhov", serif !important;
+  font-size: x-large !important;
+  margin-top: 1em !important;
+  margin-bottom: 1.5em !important;
+  text-align: center !important;
+  font-weight: bold !important;
+}
+#privacyAndCookiePolicyRoot h2 {
+  font-size: 15px !important;
+  font-family: "Volkhov", serif !important;
+  margin-top: 2em !important;
+  font-weight: bold !important;
+}
+#privacyAndCookiePolicyRoot h3 {
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 2em;
+}
+#privacyAndCookiePolicyRoot table.definitions,
+#privacyAndCookiePolicyRoot div.schedule table {
+  border-collapse: collapse !important;
+  margin: 1em 0 2em -2em !important;
+}
+#privacyAndCookiePolicyRoot table.definitions tr:nth-child(odd),
+#privacyAndCookiePolicyRoot div.schedule table tr:nth-child(odd) {
+  background-color: #eee;
+}
+#privacyAndCookiePolicyRoot table.definitions td,
+#privacyAndCookiePolicyRoot table.definitions th,
+#privacyAndCookiePolicyRoot div.schedule table td,
+#privacyAndCookiePolicyRoot div.schedule table th {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  padding: 5px !important;
+  vertical-align: top !important;
+  text-align: left !important;
+}
+#privacyAndCookiePolicyRoot table.definitions th,
+#privacyAndCookiePolicyRoot div.schedule table th {
+  width: 25% !important;
+}
+#privacyAndCookiePolicyRoot table.signature,
+#privacyAndCookiePolicyRoot table.signature2,
+#privacyAndCookiePolicyRoot div.signature table {
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+}
+#privacyAndCookiePolicyRoot table.signature th,
+#privacyAndCookiePolicyRoot table.signature td,
+#privacyAndCookiePolicyRoot table.signature2 th,
+#privacyAndCookiePolicyRoot table.signature2 td,
+#privacyAndCookiePolicyRoot div.signature table th,
+#privacyAndCookiePolicyRoot div.signature table td {
+  padding: 1em 0 0 0 !important;
+}
+#privacyAndCookiePolicyRoot table.signature th,
+#privacyAndCookiePolicyRoot table.signature2 th,
+#privacyAndCookiePolicyRoot div.signature table th {
+  font-weight: normal !important;
+  text-align: right !important;
+  padding-right: 1em !important;
+  min-width: 90px;
+}
+#privacyAndCookiePolicyRoot table.signature td.signatureBox,
+#privacyAndCookiePolicyRoot table.signature2 td.signatureBox,
+#privacyAndCookiePolicyRoot div.signature table td.signatureBox {
+  border-bottom: 1px solid black !important;
+  min-width: 300px;
+}
+#privacyAndCookiePolicyRoot .witness table th,
+#privacyAndCookiePolicyRoot .witness table td {
+  border: none;
+  vertical-align: text-top;
+}
+#privacyAndCookiePolicyRoot .witness table th {
+  font-weight: normal;
+}
+#privacyAndCookiePolicyRoot ol.letterList {
+  list-style: lower-alpha !important;
+}
+#privacyAndCookiePolicyRoot div.schedule {
+  border-top: 1px solid black;
+}
+#privacyAndCookiePolicyRoot div.schedule h2 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+#privacyAndCookiePolicyRoot div.schedule h3 {
+  margin-top: 1em;
+  text-align: center;
+  margin-bottom: 3em;
+}
+#privacyAndCookiePolicyRoot table.withBorders {
+  width: 100%;
+  border-width: 0px;
+  border-spacing: 0px;
+  border-style: none;
+  border-color: gray;
+  border-collapse: collapse;
+  background-color: white;
+}
+#privacyAndCookiePolicyRoot table.withBorders th {
+  border-width: 1px;
+  padding: 5px;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+}
+#privacyAndCookiePolicyRoot table.withBorders td {
+  border-width: 1px;
+  padding: 5px;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+}
+#privacyAndCookiePolicyRoot .pagebreakhere {
+  page-break-before: always;
+}

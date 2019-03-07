@@ -4,3 +4,5 @@ export const DOWNLOAD = "/download";
 export const WIKI = "/wiki";
 
 export const ADMIN = "/admin";
+
+export const COOKIE_POLICY = "/cookies";

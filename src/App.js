@@ -6,8 +6,9 @@ import TitleBar from "./components/TitleBar";
 import Cookies from "universal-cookie";
 import CookieConsent from "react-cookie-consent";
 import Scrollbars from "react-custom-scrollbars";
+import Footer from "./components/Footer";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import * as ROUTES from "./constants/routes";
 
@@ -18,6 +19,7 @@ import AdminPage from "./pages/Admin";
 import BlogPage from "./pages/Blog";
 import DownloadPage from "./pages/Download";
 import DocumentationPage from "./pages/Documentation";
+import { CookiesPage } from "./pages/Policies/";
 
 const getThemeColour = () => {
   let c = new Cookies();
@@ -30,7 +32,9 @@ const getThemeColour = () => {
   ) {
     c.set("theme", "dark", {
       path: "/",
-      expires: new Date(new Date().setYear(new Date().getFullYear() + 1)),
+      expires: new Date(
+        new Date().setYear(new Date().getFullYear() + 1)
+      ) /* expires in 1 year */,
     });
 
     themeType = c.get("theme");
@@ -180,7 +184,13 @@ class App extends Component {
                     path={ROUTES.ADMIN}
                     component={AdminPage}
                   />
+                  <Route
+                    exact={true}
+                    path={ROUTES.COOKIE_POLICY}
+                    component={CookiesPage}
+                  />
                 </main>
+                <Footer />
               </MuiThemeProvider>
             </ScrollToTop>
           </Router>
@@ -194,7 +204,11 @@ class App extends Component {
             expires={150}
           >
             Quantify stores cookies on your PC to enhance user experience.{"  "}
-            <span style={{ fontSize: "10px" }}>Sorry: not gluten free.</span>
+            <Link
+              style={{ fontSize: "10px" }}
+              to={ROUTES.COOKIE_POLICY}
+              key="Learn more..."
+            />
           </CookieConsent>
         </Scrollbars>
       </>

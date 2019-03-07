@@ -21,7 +21,12 @@ For the first option, just extract the tools to `C:\Windows`. From there, you sh
 
 For the second option, create a folder somewhere. I personally have a folder called `C:\ADB` on my PC. Extract the tools into that folder. To use them, you need to open a command prompt window and type `cd /d C:\PATH\TO\FOLDER`. Then you can use them as normal.
 
-**NOTICE:** If your computer can't find adb, something's wrong with your setup, and adb is probably not in your path. If you're a) on macOS, b) using the Linux extract package, or c) did not extract to your Windows directory, you need to be in the directory of adb. use `cd` followed by the path to that directory. macOS and Linux users using the extract package also need to use `chmod +x *` to give the binaries executable permissions, annd call adb using `./adb`. This also goes for `fastboot`.
+---
+
+<span style="color:blue">INFO</span>
+If your computer can't find adb, something's wrong with your setup, and adb is probably not in your path. If you're a) on macOS, b) using the Linux extract package, or c) did not extract to your Windows directory, you need to be in the directory of adb. use `cd` followed by the path to that directory. macOS and Linux users using the extract package also need to use `chmod +x *` to give the binaries executable permissions, annd call adb using `./adb`. This also goes for `fastboot`.
+
+---
 
 ### The Software Way
 

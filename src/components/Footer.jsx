@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Grid, ListItem, ListItemText, Paper, List } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { Paper, List, Divider, Typography } from "@material-ui/core";
 
 import * as ROUTES from "../constants/routes";
 
@@ -8,31 +9,18 @@ class Footer extends Component {
   render() {
     return (
       <>
-        <footer style={{ width: "80%" }}>
-          <Grid container spacing={5}>
-            <Grid item>
-              <Paper elevation={4}>
-                <List>
-                  <SitemapLink to={ROUTES.HOME}>Home</SitemapLink>
-                </List>
-              </Paper>
-            </Grid>
-            <Grid item>
-              <Paper elevation={4}>
-                <List>
-                  <SitemapLink to={ROUTES.HOME}>Downloads</SitemapLink>
-                  <SitemapLink to={ROUTES.DOWNLOAD}>Source Code</SitemapLink>
-                </List>
-              </Paper>
-            </Grid>
-            <Grid item>
-              <Paper elevation={4}>
-                <List>
-                  <SitemapLink to={ROUTES.HOME}>Home</SitemapLink>
-                </List>
-              </Paper>
-            </Grid>
-          </Grid>
+        <footer style={{ width: "100%" }}>
+          <Paper style={{ width: "100%", padding: 32 }} elevation={2}>
+            <Typography variant="h5" style={{ padding: 16 }}>
+              Sitemap
+            </Typography>
+            <Divider variant="fullWidth" style={{ marginBottom: 16 }} />
+            <SitemapLink to={ROUTES.HOME} text="Homepage" />
+            <SitemapLink to={ROUTES.DOWNLOAD} text="Downloads" />
+            <SitemapLink to={ROUTES.DOWNLOAD + "#source"} text="Source Code" />
+            <SitemapLink to={ROUTES.WIKI} text="Documentation" />
+            <SitemapLink to={ROUTES.HOME} text="Contact Us (not implemented)" />
+          </Paper>
         </footer>
       </>
     );
@@ -40,11 +28,13 @@ class Footer extends Component {
 }
 
 function SitemapLink(props) {
-  let linkText = props.text;
+  let { to, text } = props;
   return (
-    <ListItem button component="link" {...props}>
-      <ListItemText primary={linkText} />
-    </ListItem>
+    <Link key={text} to={to} role="menuitem">
+      <Typography variant="body1" component="span">
+        {text}
+      </Typography>
+    </Link>
   );
 }
 
