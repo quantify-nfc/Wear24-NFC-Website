@@ -45,6 +45,6 @@
   ],
   "theme_color": "#0d47a1",
   "background_color": "#0d47a1",
-  "start_url": "https://wear24rom.com/",
+  "start_url": "/",
   "display": "standalone"
 }
