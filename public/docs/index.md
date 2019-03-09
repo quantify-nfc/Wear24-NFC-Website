@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Quantify Wear24 Modification involves a custom ROM and Kernel for the Quanta Dorado. The modifications made aim to bring many new features including NFC support and Google Pay fucntionality which Verizon left out.
+The Quantify Wear24 Modification involves a custom ROM and Kernel for the Quanta Dorado. The modifications aim to bring many new features including NFC support and Google Pay functionality which Verizon left out.
 
 There are 7 total steps in this process. Be aware, some involve tools you may not have on you. Please check the list below.
 
