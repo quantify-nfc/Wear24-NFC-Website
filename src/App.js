@@ -193,23 +193,23 @@ class App extends Component {
                 <Footer />
               </MuiThemeProvider>
             </ScrollToTop>
+            <CookieConsent
+              location="bottom"
+              buttonText="Sure thing!"
+              cookieName="cookieConsent"
+              style={{ background: "#2B373B" }}
+              buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+              expires={150}
+            >
+              Quantify stores cookies on your PC to enhance user experience.
+              {"  "}
+              <Link
+                style={{ fontSize: "10px" }}
+                to={ROUTES.COOKIE_POLICY}
+                key="Learn more..."
+              />
+            </CookieConsent>
           </Router>
-
-          <CookieConsent
-            location="bottom"
-            buttonText="Sure thing!"
-            cookieName="cookieConsent"
-            style={{ background: "#2B373B" }}
-            buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
-            expires={150}
-          >
-            Quantify stores cookies on your PC to enhance user experience.{"  "}
-            <Link
-              style={{ fontSize: "10px" }}
-              to={ROUTES.COOKIE_POLICY}
-              key="Learn more..."
-            />
-          </CookieConsent>
         </Scrollbars>
       </>
     );
