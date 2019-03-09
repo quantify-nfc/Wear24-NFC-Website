@@ -32,7 +32,7 @@ function SitemapLink(props) {
   return (
     <Link key={text} to={to} role="menuitem">
       <Typography variant="body1" component="span">
-        {text}
+        <u>{text}</u>
       </Typography>
     </Link>
   );

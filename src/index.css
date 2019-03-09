@@ -42,6 +42,5 @@ a:hover:not([role="button"]):not([role="menuitem"]) {
 footer a:link,
 footer a:visited {
   color: inherit;
-  text-decoration: underline;
   margin: 8px;
 }
