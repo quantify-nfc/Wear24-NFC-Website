@@ -203,7 +203,7 @@ class App extends Component {
                 Quantify stores cookies on your PC to enhance user experience.
                 {"  "}
                 <Link
-                  style={{ fontSize: "10px" }}
+                  style={{ fontSize: "10px", cursor: "pointer" }}
                   to={ROUTES.COOKIE_POLICY}
                   key="Learn more..."
                 />
