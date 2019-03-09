@@ -12,6 +12,8 @@
     "@material-ui/core": "^4.0.0-alpha.1",
     "@material-ui/icons": "^4.0.0-alpha.1",
     "babel-preset-react": "^6.24.1",
+    "firebase": "^5.8.6",
+    "firebaseui": "^3.5.2",
     "manrope": "^2.0.0",
     "markdown-to-jsx": "^6.9.1",
     "mdi-react": "^5.2.0",
