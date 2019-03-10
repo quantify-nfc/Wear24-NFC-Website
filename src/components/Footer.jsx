@@ -19,6 +19,7 @@ class Footer extends Component {
             <SitemapLink to={ROUTES.DOWNLOAD} text="Downloads" />
             <SitemapLink to={ROUTES.DOWNLOAD + "#source"} text="Source Code" />
             <SitemapLink to={ROUTES.WIKI} text="Documentation" />
+            <SitemapLink to={ROUTES.SIGN_IN} text="Sign in" />
             <SitemapLink to={ROUTES.HOME} text="Contact Us (not implemented)" />
           </Paper>
         </footer>
