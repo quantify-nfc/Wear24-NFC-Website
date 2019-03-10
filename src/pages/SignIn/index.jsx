@@ -3,18 +3,11 @@ import React, { Component } from "react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase";
 import { Paper, Typography, Divider } from "@material-ui/core";
+import * as FirebaseConsts from "./../../constants/Firebase";
 
 // Configure Firebase.
-const config = {
-  apiKey: "AIzaSyCcutMFhDFrv5BBTA4A7ar1xkXGKO3BkIU",
-  authDomain: "wear24nfc.firebaseapp.com",
-  databaseURL: "https://wear24nfc.firebaseio.com",
-  projectId: "wear24nfc",
-  storageBucket: "wear24nfc.appspot.com",
-  messagingSenderId: "671820674776",
-};
 
-firebase.initializeApp(config);
+firebase.initializeApp(FirebaseConsts.FirebaseConfig);
 
 // Configure FirebaseUI.
 const uiConfig = {
