@@ -23,8 +23,8 @@ import DocumentationPage from "./pages/Documentation";
 import { CookiesPage } from "./pages/Policies/";
 import SignInScreen from "./pages/SignIn";
 
-const getSubdomain = (host) => {
-  const hostWithoutPort = host.split(":")[0];
+const getSubdomain = () => {
+  const hostWithoutPort = window.location.hostname.split(":")[0];
   return hostWithoutPort
     .split(".")
     .slice(0, -2)
@@ -158,42 +158,56 @@ class App extends Component {
 
     this.scrollbars = React.createRef();
 
-    let routers = (
-      <Switch>
-        <Route exact={true} path={ROUTES.HOME} component={LandingPage} />
-        <Route
-          exact={false}
-          path={ROUTES.BLOG_OLD}
-          render={() => {
-            window.location.href =
-              "//blog.wear24rom.com" +
-              window.location.pathname.substr(
-                5
-              ); /* Cut off the /blog from start of path */
-          }}
-        />
-        <Route exact={true} path={ROUTES.DOWNLOAD} component={DownloadPage} />
-        <Route
-          exact={true}
-          path={ROUTES.WIKI + "*"}
-          component={DocumentationPage}
-        />
-        <Route exact={true} path={ROUTES.ADMIN} component={AdminPage} />
-        <Route
-          exact={true}
-          path={ROUTES.COOKIE_POLICY}
-          component={CookiesPage}
-        />
-        <Route exact={true} path={ROUTES.SIGN_IN} component={SignInScreen} />
-      </Switch>
-    );
+    let routers = undefined;
 
-    if (getSubdomain(window.location.host) === "blog") {
-      routers = (
-        <Switch>
-          <Route exact={true} path="/*" component={BlogPage} />
-        </Switch>
-      );
+    switch (getSubdomain()) {
+      default:
+        routers = (
+          <Switch>
+            <Route exact={true} path={ROUTES.HOME} component={LandingPage} />
+            <Route
+              exact={false}
+              path={ROUTES.BLOG_OLD}
+              render={() => {
+                window.location.href =
+                  "//blog.wear24rom.com" +
+                  window.location.pathname.substr(
+                    5
+                  ); /* Cut off the /blog from start of path */
+              }}
+            />
+            <Route
+              exact={true}
+              path={ROUTES.DOWNLOAD}
+              component={DownloadPage}
+            />
+            <Route
+              exact={true}
+              path={ROUTES.WIKI + "*"}
+              component={DocumentationPage}
+            />
+            <Route exact={true} path={ROUTES.ADMIN} component={AdminPage} />
+            <Route
+              exact={true}
+              path={ROUTES.COOKIE_POLICY}
+              component={CookiesPage}
+            />
+            <Route
+              exact={true}
+              path={ROUTES.SIGN_IN}
+              component={SignInScreen}
+            />
+          </Switch>
+        );
+        break;
+
+      case "blog":
+        routers = (
+          <Switch>
+            <Route exact={true} path="/*" component={BlogPage} />
+          </Switch>
+        );
+        break;
     }
 
     return (
