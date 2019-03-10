@@ -94,7 +94,11 @@ const options = {
     },
     img: {
       component: (props) => (
-        <img {...props} style={{ maxWidth: "75%", maxHeight: 450 }} />
+        <img
+          alt={props.alt ? props.alt : ""}
+          style={{ maxWidth: "75%", maxHeight: 450 }}
+          {...props}
+        />
       ),
     },
   },
