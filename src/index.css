@@ -13,13 +13,22 @@ code {
     monospace;
 }
 
-a:not([role="button"]):not([role="menuitem"]) {
-  color: #00bfa6; /* Secondary colour from MUI theme */
+main[data-theme="dark"] a:not([role="button"]):not([role="menuitem"]) {
+  color: #64ffda; /* Secondary colour from MUI theme adjusted to suitable contrast ratio */
   transition: color 100ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-a:hover:not([role="button"]):not([role="menuitem"]) {
-  color: #00a090;
+main[data-theme="dark"] a:hover:not([role="button"]):not([role="menuitem"]) {
+  color: #1de9b6;
+}
+
+main[data-theme="light"] a:not([role="button"]):not([role="menuitem"]) {
+  color: #00583e; /* Secondary colour from MUI theme adjusted to suitable contrast ratio */
+  transition: color 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+main[data-theme="light"] a:hover:not([role="button"]):not([role="menuitem"]) {
+  color: #2b2b2b;
 }
 
 .linkContainer a.externalLink:link,
