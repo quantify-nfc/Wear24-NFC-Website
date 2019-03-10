@@ -163,7 +163,7 @@ class App extends Component {
         <Route exact={true} path={ROUTES.HOME} component={LandingPage} />
         <Route
           exact={false}
-          path={ROUTES.BLOG}
+          path={ROUTES.BLOG_OLD}
           render={() => {
             window.location.href =
               "//blog.wear24rom.com" +
