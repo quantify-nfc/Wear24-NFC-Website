@@ -8,7 +8,8 @@ import CookieConsent from "react-cookie-consent";
 import Scrollbars from "react-custom-scrollbars";
 import Footer from "./components/Footer";
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+
 import ScrollToTop from "./components/ScrollToTop";
 import * as ROUTES from "./constants/routes";
 
@@ -20,6 +21,15 @@ import BlogPage from "./pages/Blog";
 import DownloadPage from "./pages/Download";
 import DocumentationPage from "./pages/Documentation";
 import { CookiesPage } from "./pages/Policies/";
+import SignInScreen from "./pages/SignIn";
+
+const getSubdomain = (host) => {
+  const hostWithoutPort = host.split(":")[0];
+  return hostWithoutPort
+    .split(".")
+    .slice(0, -2)
+    .join(".");
+};
 
 const getThemeColour = () => {
   let c = new Cookies();
@@ -148,6 +158,44 @@ class App extends Component {
 
     this.scrollbars = React.createRef();
 
+    let routers = (
+      <Switch>
+        <Route exact={true} path={ROUTES.HOME} component={LandingPage} />
+        <Route
+          exact={false}
+          path={ROUTES.BLOG}
+          render={() => {
+            window.location.href =
+              "//blog.wear24rom.com" +
+              window.location.pathname.substr(
+                5
+              ); /* Cut off the /blog from start of path */
+          }}
+        />
+        <Route exact={true} path={ROUTES.DOWNLOAD} component={DownloadPage} />
+        <Route
+          exact={true}
+          path={ROUTES.WIKI + "*"}
+          component={DocumentationPage}
+        />
+        <Route exact={true} path={ROUTES.ADMIN} component={AdminPage} />
+        <Route
+          exact={true}
+          path={ROUTES.COOKIE_POLICY}
+          component={CookiesPage}
+        />
+        <Route exact={true} path={ROUTES.SIGN_IN} component={SignInScreen} />
+      </Switch>
+    );
+
+    if (getSubdomain(window.location.host) === "blog") {
+      routers = (
+        <Switch>
+          <Route exact={true} path="/*" component={BlogPage} />
+        </Switch>
+      );
+    }
+
     return (
       <>
         <Scrollbars
@@ -162,33 +210,8 @@ class App extends Component {
                 <CssBaseline />
                 <TitleBar changeTheme={setThemeColour} />
                 {/* Main page content below */}
-                <main style={styles.main}>
-                  <Route
-                    exact={true}
-                    path={ROUTES.HOME}
-                    component={LandingPage}
-                  />
-                  <Route exact={true} path={ROUTES.BLOG} component={BlogPage} />
-                  <Route
-                    exact={true}
-                    path={ROUTES.DOWNLOAD}
-                    component={DownloadPage}
-                  />
-                  <Route
-                    exact={true}
-                    path={ROUTES.WIKI + "*"}
-                    component={DocumentationPage}
-                  />
-                  <Route
-                    exact={true}
-                    path={ROUTES.ADMIN}
-                    component={AdminPage}
-                  />
-                  <Route
-                    exact={true}
-                    path={ROUTES.COOKIE_POLICY}
-                    component={CookiesPage}
-                  />
+                <main style={styles.main} data-theme={theme.palette.type}>
+                  {routers}
                 </main>
                 <Footer />
               </MuiThemeProvider>

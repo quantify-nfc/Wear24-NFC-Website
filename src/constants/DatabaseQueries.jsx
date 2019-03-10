@@ -10,12 +10,16 @@ const getBlogPosts = (pageNumber = 1, postsPerPage = 10) => {
     .endAt(pageNumber * postsPerPage);
 };
 
-// Select top 25 blog posts
+// Select single blog post
 const getBlogPost = (postId) => {
   return rootRef.child("blog_posts").child(postId);
 };
 
-// Select top 25 blog posts
+// Get post comments
 const getBlogComments = (setNumber = 1, commentsPerSet = 25) => {
-  return rootRef.child("blog_posts").child(postId);
+  return rootRef
+    .child("blog_comments")
+    .child(postId)
+    .startAt((setNumber - 1) * commentsPerSet + 1)
+    .endAt(setNumber * commentsPerSet);
 };
