@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Paper, List, Divider, Typography } from "@material-ui/core";
+import { Paper, Divider, Typography } from "@material-ui/core";
 
 import * as ROUTES from "../constants/routes";
 
