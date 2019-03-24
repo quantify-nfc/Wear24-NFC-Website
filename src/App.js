@@ -3,7 +3,6 @@ import { CssBaseline } from "@material-ui/core/";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { blue, teal } from "@material-ui/core/colors/";
 import TitleBar from "./components/TitleBar";
-import Cookies from "universal-cookie";
 import CookieConsent from "react-cookie-consent";
 import Scrollbars from "react-custom-scrollbars";
 import Footer from "./components/Footer";
@@ -23,6 +22,10 @@ import DocumentationPage from "./pages/Documentation";
 import { CookiesPage } from "./pages/Policies/";
 import SignInScreen from "./pages/SignIn";
 
+import * as FirebaseCommon from "./firebase/common";
+
+import * as CookieFunctions from "./cookies";
+
 const getSubdomain = () => {
   const hostWithoutPort = window.location.hostname.split(":")[0];
   return hostWithoutPort
@@ -32,22 +35,15 @@ const getSubdomain = () => {
 };
 
 const getThemeColour = () => {
-  let c = new Cookies();
-
-  let themeType = c.get("theme");
+  let themeType = CookieFunctions.GetCookie("theme");
 
   if (
     themeType === undefined ||
     (themeType !== "dark" && themeType !== "light")
   ) {
-    c.set("theme", "dark", {
-      path: "/",
-      expires: new Date(
-        new Date().setYear(new Date().getFullYear() + 1)
-      ) /* expires in 1 year */,
-    });
+    CookieFunctions.SetCookie("theme", "dark", "/", 1, 0, 0);
 
-    themeType = c.get("theme");
+    themeType = CookieFunctions.GetCookie("theme");
   }
 
   return themeType;
@@ -136,14 +132,10 @@ class App extends Component {
     const { theme } = this.state;
 
     const setThemeColour = () => {
-      let dark = theme.palette.type === "dark";
-      let c = new Cookies();
-      let t = !dark ? "dark" : "light";
+      let t = theme.palette.type === "dark" ? "light" : "dark";
 
-      c.set("theme", t, {
-        path: "/",
-        expires: new Date(new Date().setYear(new Date().getFullYear() + 1)),
-      });
+      CookieFunctions.SetCookie("theme", t, "/", 1, 0, 0);
+
       let newTheme = themeTemplate;
       newTheme.palette.type = t;
 
@@ -159,6 +151,8 @@ class App extends Component {
     this.scrollbars = React.createRef();
 
     let routers = undefined;
+
+    FirebaseCommon.Messaging.GetPermission();
 
     switch (getSubdomain()) {
       default:

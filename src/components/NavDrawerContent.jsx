@@ -8,7 +8,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import Link from "./Link";
 
 import * as ROUTES from "../constants/routes";
 
@@ -52,7 +52,7 @@ class NavDrawerContent extends Component {
           {[
             { text: "Development Blog", url: ROUTES.BLOG, icon: faCommentAlt },
           ].map((item) => (
-            <ListItem button key={item.text} to={item.url} component={Link}>
+            <ListItem button key={item.text} href={item.url} component="a">
               <ListItemIcon>
                 <FontAwesomeIcon icon={item.icon} fixedWidth />
               </ListItemIcon>

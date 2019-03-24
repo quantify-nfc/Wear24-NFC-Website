@@ -1,5 +1,6 @@
 {
   "projects": {
-    "staging": "wear24nfc"
+    "staging": "wear24nfc",
+    "default": "wear24nfc"
   }
 }

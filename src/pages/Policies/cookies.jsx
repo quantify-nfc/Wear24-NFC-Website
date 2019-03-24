@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./cookies.css";
+import ExternalLink from "../../components/ExternalLink";
 
 class CookiesPage extends Component {
   render() {
     return (
-      <div class="docBody" id="privacyAndCookiePolicyRoot">
+      <div className="docBody" id="privacyAndCookiePolicyRoot">
         <h1>Privacy &amp; Cookies Policy</h1>
         <p>
           This privacy policy applies between you, the User of this Website and
@@ -19,10 +20,10 @@ class CookiesPage extends Component {
         </p>
 
         <h2>Definitions and interpretation</h2>
-        <ol class="clauses firstList">
+        <ol className="clauses firstList">
           <li>
             In this privacy policy, the following definitions are used:
-            <table class="definitions">
+            <table className="definitions">
               <tbody>
                 <tr>
                   <td>
@@ -141,7 +142,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Scope of this privacy policy</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             This privacy policy applies only to the actions of David Wheatley
             and Users with respect to this Website. It does not extend to any
@@ -157,7 +158,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Data collected</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             We may collect the following Data, which includes personal Data,
             from you:
@@ -181,7 +182,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>How we collect Data</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             We collect Data in the following ways:
             <ol>
@@ -192,7 +193,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Data that is given to us by you</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             David Wheatley will collect your Data in a number of ways, for
             example:
@@ -215,7 +216,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Data that is collected automatically</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             To the extent that you access the Website, we will collect your Data
             automatically, for example:
@@ -238,7 +239,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Our use of Data</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             Any or all of the above Data may be required by us from time to time
             in order to provide you with the best possible service and
@@ -247,13 +248,11 @@ class CookiesPage extends Component {
             <ol>
               <li>internal record keeping;</li>
               <li>improvement of our products / services;</li>
-
               <li>
                 transmission by email of marketing materials that may be of
                 interest to you;
               </li>
-
-              <li>_______________;</li>
+              <li>providing support and live chat services</li>
             </ol>
           </li>
 
@@ -309,7 +308,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Who we share Data with</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             We may share your Data with the following groups of people for the
             following reasons:
@@ -335,7 +334,7 @@ class CookiesPage extends Component {
           </li>
         </ol>
         <h2>Keeping Data secure</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             We will use technical and organisational measures to safeguard your
             Data, for example:
@@ -359,14 +358,20 @@ class CookiesPage extends Component {
             protect your information and your computers and devices against
             fraud, identity theft, viruses and many other online problems,
             please visit{" "}
-            <a href="www.getsafeonline.org">www.getsafeonline.org</a>. Get Safe
-            Online is supported by HM Government and leading businesses.
+            <ExternalLink
+              url="https://www.getsafeonline.org"
+              title="Get Safe Online"
+            >
+              www.getsafeonline.org
+            </ExternalLink>
+            . Get Safe Online is supported by HM Government and leading
+            businesses.
             <br />
           </li>
         </ol>
 
         <h2>Data retention</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             Unless a longer retention period is required or permitted by law, we
             will only hold your Data on our systems for the period necessary to
@@ -380,7 +385,7 @@ class CookiesPage extends Component {
           </li>
         </ol>
         <h2>Your rights </h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             You have the following rights in relation to your Data:
             <ol>
@@ -432,8 +437,14 @@ class CookiesPage extends Component {
             relation to your Data is handled by us, you may be able to refer
             your complaint to the relevant data protection authority. For the
             UK, this is the Information Commissioner's Office (ICO). The ICO's
-            contact details can be found on their website at
-            https://ico.org.uk/.
+            contact details can be found on their website at{" "}
+            <ExternalLink
+              url="https://ico.org.uk/"
+              title="Information Commissioner's Office"
+            >
+              https://ico.org.uk/
+            </ExternalLink>
+            .
           </li>
           <li>
             It is important that the Data we hold about you is accurate and
@@ -443,7 +454,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Transfers outside the European Economic Area</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             Data which we collect from you may be stored and processed in and
             transferred to countries outside of the European Economic Area
@@ -471,7 +482,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Links to other websites</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             This Website may, from time to time, provide links to other
             websites. We have no control over such websites and are not
@@ -483,7 +494,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Changes of business ownership and control</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             David Wheatley may, from time to time, expand or reduce our business
             and this may involve the sale and/or the transfer of control of all
@@ -507,7 +518,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Cookies</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             This Website may place and access certain Cookies on your computer.
             David Wheatley uses Cookies to improve your experience of using the
@@ -533,7 +544,7 @@ class CookiesPage extends Component {
 
           <li>This Website may place the following Cookies:</li>
 
-          <table class="withBorders">
+          <table className="withBorders">
             <tbody>
               <tr>
                 <td width="30%" valign="center" align="center">
@@ -627,7 +638,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>General</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             You may not transfer any of your rights under this privacy policy to
             any other person. We may transfer our rights under this privacy
@@ -658,7 +669,7 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Changes to this privacy policy</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <li>
             David Wheatley reserves the right to change this privacy policy as
             we may deem necessary from time to time or as may be required by
@@ -673,13 +684,13 @@ class CookiesPage extends Component {
         </ol>
 
         <h2>Attribution</h2>
-        <ol class="clauses">
+        <ol className="clauses">
           <p>
             <b>07 March 2019</b>
           </p>
         </ol>
 
-        <p class="pagebreakhere">&nbsp;</p>
+        <p className="pagebreakhere">&nbsp;</p>
 
         <h2>Cookies</h2>
 
@@ -692,7 +703,7 @@ class CookiesPage extends Component {
         <p>Strictly necessary</p>
         <p>We use the following strictly necessary cookies: </p>
 
-        <table class="withBorders">
+        <table className="withBorders">
           <tbody>
             <tr>
               <td width="50%" valign="center" align="center">
@@ -739,7 +750,7 @@ class CookiesPage extends Component {
         <p>Analytical/performance</p>
         <p>We use the following analytical/performance cookies:</p>
 
-        <table class="withBorders">
+        <table className="withBorders">
           <tbody>
             <tr>
               <td width="50%" valign="center" align="center">
@@ -767,7 +778,7 @@ class CookiesPage extends Component {
         <p>Functionality </p>
         <p>We use the following functionality cookies:</p>
 
-        <table class="withBorders">
+        <table className="withBorders">
           <tbody>
             <tr>
               <td width="50%" valign="center" align="center">
@@ -795,7 +806,7 @@ class CookiesPage extends Component {
         <p>Targeting</p>
         <p>We use the following targeting cookies:</p>
 
-        <table class="withBorders">
+        <table className="withBorders">
           <tbody>
             <tr>
               <td width="50%" valign="center" align="center">

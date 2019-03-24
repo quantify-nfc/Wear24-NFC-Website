@@ -17,7 +17,7 @@ There are 7 total steps in this process. Be aware, some involve tools you may no
 - A Verizon Wear24 Smartwatch (obviously)
 - A 0.6mm Y000 screwdriver ([Amazon](http://a-fwd.com/s=0.6+Y000+screwdriver))
 - A phone repair kit with prying tools and tweazers (optional, but very useful) ([Amazon](http://a-fwd.com/s=phone+repair+kit+tweezers))
-- Heat gun (1500W+, hairdyer may work, but didn't for me) ([Amazon](http://a-fwd.com/s=heatgun))
+- Heat gun (1500W+, hairdryer may work, but didn't for me) ([Amazon](http://a-fwd.com/s=heatgun))
 - Old USB cable with data/sync capabilities ([Amazon](http://a-fwd.com/s=micro+usb+cable+data+sync))
 - Patience ([Amazon](https://www.youtube.com/watch?v=dQw4w9WgXcQ))
 

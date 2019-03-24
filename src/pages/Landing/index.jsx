@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import Link from "../../components/Link";
 import PropTypes from "prop-types";
 import {
   Typography,
@@ -182,8 +182,8 @@ const LandingGridContent = (classes) => {
             <Button
               color="secondary"
               className={classes.button}
-              component={Link}
-              to={ROUTES.BLOG}
+              component="a"
+              href={ROUTES.BLOG}
             >
               View Blog
             </Button>

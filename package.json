@@ -28,6 +28,8 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "sweetalert2": "^7.18.0",
+    "sweetalert2-react-content": "^1.0.3",
     "universal-cookie": "^3.0.7"
   },
   "scripts": {

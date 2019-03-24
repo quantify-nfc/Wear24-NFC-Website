@@ -4,11 +4,16 @@ import OpenInNewIcon from "mdi-react/OpenInNewIcon";
 
 class ExternalLink extends Component {
   render() {
-    const { url, title, text } = this.props;
+    const { url, title, children, text } = this.props;
 
+    let content = text;
     let wrap = "nowrap";
 
-    if (text.length > 25) wrap = "initial";
+    if (children) {
+      content = children;
+    }
+
+    if (content.length > 25) wrap = "initial";
 
     return (
       <>
@@ -20,7 +25,7 @@ class ExternalLink extends Component {
             title={title}
             target="_blank"
           >
-            {text}
+            {content}
           </a>
           <OpenInNewIcon size={14} />
         </span>

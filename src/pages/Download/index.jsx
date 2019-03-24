@@ -16,7 +16,7 @@ import ExternalLink from "../../components/ExternalLink";
 import MediaQuery from "react-responsive";
 
 import * as ROUTES from "../../constants/routes";
-import DownloadUrls from "../../constants/downloads";
+import DownloadInfo from "../../constants/downloads";
 import * as EXTERNAL_URLS from "../../constants/externalUrls";
 
 import DownloadIcon from "mdi-react/DownloadIcon";
@@ -148,6 +148,11 @@ const DownloadContent = (classes, theme) => {
           For more information, see the{" "}
           <Link to={ROUTES.WIKI + "/ROM-Information"}>Documentation.</Link>
         </Typography>
+        <br />
+        <Typography variant="h6" gutterBottom={true}>
+          Downloads
+        </Typography>
+        <ROMDownloads />
       </section>
       <br />
       <section id="kernel">
@@ -210,30 +215,64 @@ const DownloadContent = (classes, theme) => {
   );
 };
 
-class KernelDownloads extends Component {
-  downloads = [
-    {
-      avatar: "v1",
-      label: "v2.0.0 - Initial Release [Unstable]",
-      downloadUrl: DownloadUrls.KERNEL["2.0.0"],
-    },
-    {
-      avatar: "v1",
-      label: "v1.0-alpha - Initial Release [Unstable]",
-      downloadUrl: DownloadUrls.KERNEL["1.0.0"],
-    },
-  ];
-
+class ROMDownloads extends Component {
   render() {
     return (
       <>
-        {this.downloads.map((data) => (
+        {DownloadInfo.ROM.reverse().map((data) => (
           <Chip
             color="primary"
             deleteIcon={<DownloadIcon />}
             onDelete={() => {}}
             clickable
-            avatar={<Avatar>{data.avatar}</Avatar>}
+            avatar={
+              <Avatar
+                style={{
+                  color: "#fff",
+                  backgroundColor: "rgb(14, 70, 134)",
+                  width: 32,
+                  height: 32,
+                  fontSize: "1rem",
+                }}
+              >
+                {data.shortcode}
+              </Avatar>
+            }
+            label={data.label}
+            component="a"
+            href={data.downloadUrl}
+            style={{ margin: 8 }}
+            download
+          />
+        ))}
+      </>
+    );
+  }
+}
+
+class KernelDownloads extends Component {
+  render() {
+    return (
+      <>
+        {DownloadInfo.KERNEL.reverse().map((data) => (
+          <Chip
+            color="primary"
+            deleteIcon={<DownloadIcon />}
+            onDelete={() => {}}
+            clickable
+            avatar={
+              <Avatar
+                style={{
+                  color: "#fff",
+                  backgroundColor: "rgb(14, 70, 134)",
+                  width: 32,
+                  height: 32,
+                  fontSize: "1rem",
+                }}
+              >
+                {data.shortcode}
+              </Avatar>
+            }
             label={data.label}
             component="a"
             href={data.downloadUrl}

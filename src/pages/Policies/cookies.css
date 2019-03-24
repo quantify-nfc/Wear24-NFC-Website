@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Volkhov:400, 700");
+@import url("https://fonts.googleapis.com/css?family=Volkhov:400,700");
+
 #privacyAndCookiePolicyRoot .firstList {
   counter-reset: chapter;
 }
@@ -84,12 +85,14 @@
   margin-left: -4em;
 }
 #privacyAndCookiePolicyRoot {
-  font-family: "Volkhov", serif !important;
+  font-family: "Volkhov", sans-serif !important;
   font-size: 15px !important;
   margin: 2em 4em 4em 4em !important;
+  padding: 2rem;
+  background-color: #eee;
 }
 #privacyAndCookiePolicyRoot h1 {
-  font-family: "Volkhov", serif !important;
+  font-family: "Volkhov", sans-serif !important;
   font-size: x-large !important;
   margin-top: 1em !important;
   margin-bottom: 1.5em !important;
@@ -98,7 +101,7 @@
 }
 #privacyAndCookiePolicyRoot h2 {
   font-size: 15px !important;
-  font-family: "Volkhov", serif !important;
+  font-family: "Volkhov", sans-serif !important;
   margin-top: 2em !important;
   font-weight: bold !important;
 }
@@ -114,7 +117,7 @@
 }
 #privacyAndCookiePolicyRoot table.definitions tr:nth-child(odd),
 #privacyAndCookiePolicyRoot div.schedule table tr:nth-child(odd) {
-  background-color: #eee;
+  background-color: #ccc;
 }
 #privacyAndCookiePolicyRoot table.definitions td,
 #privacyAndCookiePolicyRoot table.definitions th,
