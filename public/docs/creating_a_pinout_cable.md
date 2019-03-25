@@ -6,7 +6,7 @@
 
 - We (anyone part of this project) are not responsible for ANY damage to yourself, the device or anything else. This includes your mental sanity which you may lose.
 
-- This process should not be undertaken unless you recognise that your device may become bricked. I repeat: **do not do this if you are not prepared to be left with a \$75 WearOS Paperweight!**
+- This process should not be undertaken unless you recognise that your device may become bricked. I repeat: **do not do this if you are not prepared to be left with a \$75 WearOS paperweight!**
 
 ## Buy a Cable!
 
@@ -26,6 +26,17 @@ Cut off the end of the USB cable that is not the 'A' connector (one that connect
 If your wires are flexible/made of multiple very thin wires wound together, it's recommended to use some sturdy wire (solid core) to reinforce them. Wrap the flexible wire around the new wire and seal the two using heat shrink tubing. You could solder these if you have the correct equipment, too.
 
 Use adhesive to put these wires together in the order of RWGB (5V, Data+, Data-, GND). Electrical tape is recommended so you can realign the cables to line up with the pinouts if need be. Afterwards, you can coat the tape and wires in hot glue if you so desire.
+
+## Test Points
+
+See the table below to see what pins connects to what test point. This will also be on the next page.
+
+| USB Pin | Test Point |
+| ------- | ---------- |
+| 5V      | TP1        |
+| Data +  | TP2        |
+| Data -  | TP3        |
+| Ground  | TP4        |
 
 ## Next Steps
 

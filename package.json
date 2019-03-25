@@ -19,6 +19,7 @@
     "mdi-react": "^5.2.0",
     "react": "^16.8.3",
     "react-cookie-consent": "^2.2.1",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.8.3",
     "react-firebaseui": "^3.1.2",
@@ -27,7 +28,7 @@
     "react-responsive": "^6.1.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5",
+    "react-scripts": "^2.1.8",
     "sweetalert2": "^7.18.0",
     "sweetalert2-react-content": "^1.0.3",
     "universal-cookie": "^3.0.7"

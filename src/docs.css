@@ -6,6 +6,45 @@
   color: rgba(0, 0, 0, 0.87);
 }
 
+.permalinkContainer {
+  border: rgba(255, 255, 255, 0.3) 1px solid;
+  border-radius: 4px;
+  float: left;
+}
+
+.permalinkContainer > span {
+  margin: 4px 8px;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+}
+
+.permalinkContainer > span > .linkIcon {
+  margin-left: 2px;
+  padding-right: 8px;
+  margin-right: 8px;
+  box-sizing: content-box;
+  border-right: rgba(255, 255, 255, 0.3) 1px solid;
+  color: rgba(255, 255, 255, 0.7);
+  display: inline-block;
+}
+
+.permalinkContainer > span > .copyButton {
+  margin-right: 2px;
+  padding-left: 8px;
+  margin-left: 8px;
+  box-sizing: content-box;
+  border-left: rgba(255, 255, 255, 0.3) 1px solid;
+  color: rgba(255, 255, 255, 0.7);
+  display: inline-block;
+  cursor: pointer;
+  transition: color cubic-bezier(0.075, 0.82, 0.165, 1) 250ms;
+}
+
+.permalinkContainer > span > .copyButton:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 a.doc-anchor-link {
   display: none;
 }

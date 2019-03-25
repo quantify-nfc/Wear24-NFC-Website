@@ -12,6 +12,13 @@ import {
   DialogContentText,
 } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import Swal from "sweetalert2";
+
+import LinkIcon from "mdi-react/LinkIcon";
+import ContentCopyIcon from "mdi-react/ContentCopyIcon";
+
+import * as Permalinks from "../../constants/DocShortLinks";
 
 import "../../docs.css";
 
@@ -109,13 +116,39 @@ class DocumentationHandler extends Component {
     const { content, feedbackDialogOpen } = this.state;
     const { classes, theme, match } = this.props;
 
+    const mdFileName = match.params[0]
+      .toLowerCase()
+      .replace(" ", "_")
+      .substr(1);
+
+    const permalink = Permalinks.prefix + Permalinks.docs[mdFileName];
+
     return (
       <>
-        <Paper
-          className={classes.toolbar}
-          elevation={4}
-          key={match.params[0].toLowerCase().replace(" ", "_")}
-        >
+        <Paper className={classes.toolbar} elevation={4} key={mdFileName}>
+          <div className="permalinkContainer">
+            <span>
+              <LinkIcon className="linkIcon" />
+              {permalink}
+              <CopyToClipboard
+                className="copyButton"
+                text={permalink}
+                onCopy={() => {
+                  let timerInterval;
+                  Swal.fire({
+                    title: "Copied!",
+                    html: "Permalink copied",
+                    timer: 750,
+                    onClose: () => {
+                      clearInterval(timerInterval);
+                    },
+                  });
+                }}
+              >
+                <ContentCopyIcon />
+              </CopyToClipboard>
+            </span>
+          </div>
           <Button
             style={{ float: "right" }}
             onClick={this.handleClickOpenFeedbackDialog}
