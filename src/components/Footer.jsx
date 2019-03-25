@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import Link from "./Link";
-import { Paper, Divider, Typography } from "@material-ui/core";
+import {
+  Paper,
+  Divider,
+  Typography,
+  MuiThemeProvider,
+} from "@material-ui/core";
 
 import * as ROUTES from "../constants/routes";
+import ExternalLink from "./ExternalLink";
 
 class Footer extends Component {
   state = {};
@@ -27,6 +33,13 @@ class Footer extends Component {
               to={ROUTES.COOKIE_POLICY}
               text="Privacy &amp; Cookies Policy"
             />
+            <Typography variant="body2" style={{ marginTop: 16 }}>
+              v2.3 - Created by{" "}
+              <ExternalLink url="https://github.com/davwheat">
+                davwheat
+              </ExternalLink>{" "}
+              for Quantify
+            </Typography>
           </Paper>
         </footer>
       </>
