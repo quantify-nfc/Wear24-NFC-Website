@@ -27,10 +27,9 @@ class Error404 extends Component {
     };
 
     $(document).mousemove(function(e) {
-      $(".background").parallax(-30, e);
-      $(".cloud1").parallax(10, e);
-      $(".cloud2").parallax(20, e);
-      $(".cloud3").parallax(30, e);
+      $("#error404canvas").parallax(15, e);
+      $("#goHomeButton").parallax(25, e);
+      $("#goBackButton").parallax(25, e);
     });
 
     let cs = document.getElementsByClassName("glitchCanvas");
@@ -127,7 +126,7 @@ class Error404 extends Component {
           elevation={4}
           style={{
             margin: "96px auto 36px auto",
-            paddingBottom: 16,
+            padding: "32px 0 48px 0",
             width: "max-content",
             maxWidth: "95%",
             minWidth: "50vw",
@@ -156,6 +155,7 @@ class Error404 extends Component {
             }}
           />
           <BetterLink
+            id="goHomeButton"
             to={ROUTES.HOME}
             style={{ float: "left", marginLeft: 32, maxWidth: "40%" }}
           >
@@ -172,6 +172,7 @@ class Error404 extends Component {
             />
           </BetterLink>
           <BetterLink
+            id="goBackButton"
             to={ROUTES.HOME}
             style={{ float: "right", marginRight: 32, maxWidth: "40%" }}
             onClick={() => {
