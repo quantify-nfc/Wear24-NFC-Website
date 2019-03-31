@@ -18,9 +18,12 @@ import LandingPage from "./pages/Landing";
 import AdminPage from "./pages/Admin";
 import BlogPage from "./pages/Blog";
 import DownloadPage from "./pages/Download";
+import RecommendedAppsPage from "./pages/RecommendedApps";
 import DocumentationPage from "./pages/Documentation";
 import { CookiesPage } from "./pages/Policies/";
 import SignInScreen from "./pages/SignIn";
+
+import { Error404 } from "./pages/Errors";
 
 import * as FirebaseCommon from "./firebase/common";
 
@@ -191,6 +194,12 @@ class App extends Component {
               path={ROUTES.SIGN_IN}
               component={SignInScreen}
             />
+            <Route
+              exact={true}
+              path={ROUTES.RECOMMENDED_APPS}
+              component={RecommendedAppsPage}
+            />
+            <Route component={Error404} />
           </Switch>
         );
         break;

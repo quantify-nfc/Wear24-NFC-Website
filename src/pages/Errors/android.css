@@ -1,0 +1,183 @@
+@keyframes WAVE {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-170deg);
+  }
+  38% {
+    transform: rotate(-150deg);
+  }
+  46% {
+    transform: rotate(-190deg);
+  }
+  54% {
+    transform: rotate(-150deg);
+  }
+  62% {
+    transform: rotate(-190deg);
+  }
+  68% {
+    transform: rotate(-190deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes SMILEEYES {
+  0% {
+    transform: translateY(-15px);
+  }
+  30% {
+    transform: translateY(-23px);
+  }
+  70% {
+    transform: translateY(-23px);
+  }
+  75% {
+    transform: translateY(-25px);
+  }
+  80% {
+    transform: translateY(-25px);
+  }
+  85% {
+    transform: translateY(-15px);
+  }
+}
+
+#errorSection:hover ~ #androidContainer,
+#androidContainer:hover {
+  transform: rotate(40deg);
+  opacity: 1;
+
+  /* transition: transform 200ms cubic-bezier(0.4, 0, 1, 1); */
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1),
+    opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 4.5s;
+}
+
+#androidContainer {
+  transform-origin: 25% 90%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  width: max-content;
+  height: max-content;
+  display: block;
+  position: absolute;
+  margin-right: -50px;
+  margin-top: -75px;
+
+  opacity: 0;
+
+  transition: transform 200ms cubic-bezier(0.4, 0, 1, 1),
+    opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#errorSection:hover ~ #androidContainer #android #body .shape.shape.b2,
+#androidContainer:hover #android #body .shape.shape.b2 {
+  transform-origin: center 7%;
+  animation: WAVE 2s 6s infinite;
+
+  /* transition: transform 200ms cubic-bezier(0.4, 0, 1, 1); */
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+#errorSection:hover ~ #androidContainer #android #head .eyes::after,
+#androidContainer:hover #android #head .eyes::after {
+  animation: SMILEEYES 2s 6s infinite;
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#android {
+  width: 300px;
+  height: 300px;
+  margin: 50px auto;
+  position: relative;
+  transform: scale(0.5);
+}
+#head {
+  border-radius: 65px 65px 0 0;
+  width: 130px;
+  height: 65px;
+  margin: 0 auto;
+  background-color: #a4ca39;
+}
+.antenna {
+  width: 4px;
+  height: 30px;
+  position: absolute;
+  top: -12px;
+  border-radius: 5px;
+  background-color: #a4ca39;
+}
+.antenna.a1 {
+  left: 36%;
+  transform: rotate(330deg);
+}
+.antenna.a2 {
+  left: 61%;
+  transform: rotate(33deg);
+}
+.eyes {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 29px;
+  border-radius: 50%;
+  background: #fff;
+}
+.eyes.a1 {
+  left: 38%;
+}
+.eyes.a2 {
+  left: 58%;
+}
+
+.eyes::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 29px;
+  border-radius: 50%;
+  background: #a4ca39;
+  transform: translateY(-10px);
+}
+
+#body {
+  border-radius: 0 0 15px 15px;
+  width: 130px;
+  height: 112px;
+  margin: 4px auto;
+  background-color: #a4ca39;
+  position: relative;
+}
+.shape {
+  width: 30px;
+  height: 90px;
+  border-radius: 30px;
+  background-color: #a4ca39;
+  position: absolute;
+  top: -3px;
+}
+.shape.b1 {
+  left: -37px;
+}
+.shape.b2 {
+  right: -36px;
+}
+.shape.b3 {
+  top: 63%;
+  left: 25px;
+}
+.shape.b4 {
+  top: 63%;
+  right: 25px;
+}
+.clearfix::after {
+  clear: "both";
+  content: "";
+  display: "table";
+}

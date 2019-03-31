@@ -24,6 +24,7 @@ class ExternalLink extends Component {
             rel="noopener noreferrer"
             title={title}
             target="_blank"
+            style={{ margin: 0 }}
           >
             {content}
           </a>
@@ -36,7 +37,7 @@ class ExternalLink extends Component {
 
 ExternalLink.propTypes = {
   url: PropTypes.string.isRequired,
-  text: PropTypes.any.isRequired,
+  text: PropTypes.any,
   title: PropTypes.string,
 };
 
