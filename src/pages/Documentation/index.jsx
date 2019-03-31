@@ -72,7 +72,7 @@ class DocumentationHandler extends Component {
 
     if (page === "/docs/.md") page = "/docs/index.md";
 
-    console.log(page);
+    //console.log(page);
 
     fetch(page).then((response) => {
       if (!response.ok) {

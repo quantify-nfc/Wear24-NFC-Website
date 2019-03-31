@@ -15,12 +15,12 @@ class BetterLink extends Component {
 
     let external = false;
 
-    console.warn(getSubdomain());
+    //console.warn(getSubdomain());
 
     if (to.startsWith("//") || to.startsWith("http") || this.props.external) {
       external = true;
     } else if (getSubdomain() !== "") {
-      console.warn("yeet");
+      //console.warn("yeet");
       external = true;
       to = "https://wear24rom.com" + to;
     }

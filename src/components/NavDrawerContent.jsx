@@ -64,7 +64,6 @@ class NavDrawerContent extends Component {
                     />
                   </ListItemIcon>
                   <ListItemText primary={item.text} />
-                  {console.log(item)}
                 </ListItem>
               ))}
             </List>

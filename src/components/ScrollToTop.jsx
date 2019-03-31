@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 class ScrollToTop extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
-      console.log("Yoink");
+      //console.log("Yoink");
       this.props.scrollbars.current.scrollTop();
     }
   }
