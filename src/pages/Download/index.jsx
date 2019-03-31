@@ -35,7 +35,6 @@ const styles = (theme) => ({
 });
 
 class DownloadsPage extends Component {
-  state = {};
   render() {
     const { classes, theme } = this.props;
 
