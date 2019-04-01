@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import { CssBaseline } from "@material-ui/core/";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import { CssBaseline, Fab } from "@material-ui/core/";
+import {
+  createMuiTheme,
+  MuiThemeProvider,
+  withStyles,
+} from "@material-ui/core/styles";
 import { blue, teal } from "@material-ui/core/colors/";
 import TitleBar from "./components/TitleBar";
 import CookieConsent from "react-cookie-consent";
@@ -23,11 +27,14 @@ import DocumentationPage from "./pages/Documentation";
 import { CookiesPage } from "./pages/Policies/";
 import SignInScreen from "./pages/SignIn";
 
+import FeedbackIcon from "mdi-react/FeedbackIcon";
+
 import { Error404 } from "./pages/Errors";
 
 import * as FirebaseCommon from "./firebase/common";
 
 import * as CookieFunctions from "./cookies";
+import swal from "sweetalert2";
 
 const getSubdomain = () => {
   const hostWithoutPort = window.location.hostname.split(":")[0];
@@ -248,6 +255,28 @@ class App extends Component {
                   key="Learn more..."
                 />
               </CookieConsent>
+
+              <Fab
+                size="medium"
+                color="secondary"
+                aria-label="Feedback"
+                style={{ margin: 16, position: "fixed", bottom: 0, right: 0 }}
+                className="fabHoverLarge"
+                onClick={() => {
+                  swal.fire({
+                    title: "Quantify: Website Feedback",
+                    html: `<p>Thanks for clicking the Feedback button.</p>
+                          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe4zekN3dow3w8uFEg_8Hg-vbVvOxwW22KiWacP1YycRdlcpg/viewform?embedded=true" style="width: 90%; margin: auto; height: 450px; height: 40vh" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>`,
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    focusConfirm: false,
+                    confirmButtonText: "Close Dialog",
+                    confirmButtonAriaLabel: "Close Dialog",
+                  });
+                }}
+              >
+                <FeedbackIcon />
+              </Fab>
             </ScrollToTop>
           </Router>
         </Scrollbars>
@@ -256,4 +285,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withStyles({}, { withTheme: true })(App);
