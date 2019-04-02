@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import { Link } from "react-router-dom";
+import Link from "../../components/Link";
 import {
   Paper,
   Typography,
@@ -145,7 +145,7 @@ const DownloadContent = (classes, theme) => {
         </Typography>
         <Typography variant="body2" paragraph>
           For more information, see the{" "}
-          <Link to={ROUTES.WIKI + "/ROM-Information"}>Documentation.</Link>
+          <Link to={ROUTES.WIKI}>Documentation.</Link>
         </Typography>
         <br />
         <Typography variant="h6" gutterBottom={true}>
@@ -170,7 +170,7 @@ const DownloadContent = (classes, theme) => {
         </Typography>
         <Typography variant="body2" paragraph>
           For more information, see the{" "}
-          <Link to={ROUTES.WIKI + "/ROM-Information"}>Documentation.</Link>
+          <Link to={ROUTES.WIKI}>Documentation.</Link>
         </Typography>
         <br />
         <Typography variant="h6" gutterBottom={true}>
