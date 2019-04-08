@@ -39,9 +39,9 @@ import swal from "sweetalert2";
 const getSubdomain = () => {
   const hostWithoutPort = window.location.hostname.split(":")[0];
   return hostWithoutPort
-    .split(".")
-    .slice(0, -2)
-    .join(".");
+  .split(".")
+  .slice(0, -2)
+  .join(".");
 };
 
 const getThemeColour = () => {
@@ -168,45 +168,45 @@ class App extends Component {
       default:
         routers = (
           <Switch>
-            <Route exact={true} path={ROUTES.HOME} component={LandingPage} />
+            <Route exact={ true } path={ ROUTES.HOME } component={ LandingPage }/>
             <Route
-              exact={false}
-              path={ROUTES.BLOG_OLD}
-              render={() => {
+              exact={ false }
+              path={ ROUTES.BLOG_OLD }
+              render={ () => {
                 window.location.href =
                   "//blog.wear24rom.com" +
                   window.location.pathname.substr(
-                    5
+                    5,
                   ); /* Cut off the /blog from start of path */
-              }}
+              } }
             />
             <Route
-              exact={true}
-              path={ROUTES.DOWNLOAD}
-              component={DownloadPage}
+              exact={ true }
+              path={ ROUTES.DOWNLOAD }
+              component={ DownloadPage }
             />
             <Route
-              exact={true}
-              path={ROUTES.WIKI + "*"}
-              component={DocumentationPage}
+              exact={ true }
+              path={ ROUTES.WIKI + "*" }
+              component={ DocumentationPage }
             />
-            <Route exact={true} path={ROUTES.ADMIN} component={AdminPage} />
+            <Route exact={ true } path={ ROUTES.ADMIN } component={ AdminPage }/>
             <Route
-              exact={true}
-              path={ROUTES.COOKIE_POLICY}
-              component={CookiesPage}
-            />
-            <Route
-              exact={true}
-              path={ROUTES.SIGN_IN}
-              component={SignInScreen}
+              exact={ true }
+              path={ ROUTES.COOKIE_POLICY }
+              component={ CookiesPage }
             />
             <Route
-              exact={true}
-              path={ROUTES.RECOMMENDED_APPS}
-              component={RecommendedAppsPage}
+              exact={ true }
+              path={ ROUTES.SIGN_IN }
+              component={ SignInScreen }
             />
-            <Route component={Error404} />
+            <Route
+              exact={ true }
+              path={ ROUTES.RECOMMENDED_APPS }
+              component={ RecommendedAppsPage }
+            />
+            <Route component={ Error404 }/>
           </Switch>
         );
         break;
@@ -214,7 +214,7 @@ class App extends Component {
       case "blog":
         routers = (
           <Switch>
-            <Route exact={true} path="/*" component={BlogPage} />
+            <Route exact={ true } path="/*" component={ BlogPage }/>
           </Switch>
         );
         break;
@@ -223,61 +223,61 @@ class App extends Component {
     return (
       <>
         <Scrollbars
-          ref={this.scrollbars}
+          ref={ this.scrollbars }
           autoHide
           autoHeight
           autoHeightMax="100vh"
         >
           <Router>
-            <ScrollToTop scrollbars={this.scrollbars}>
-              <MuiThemeProvider theme={muiTheme}>
-                <CssBaseline />
-                <TitleBar changeTheme={setThemeColour} />
-                {/* Main page content below */}
-                <main style={styles.main} data-theme={theme.palette.type}>
-                  {routers}
-                </main>
-                <Footer />
-              </MuiThemeProvider>
-              <CookieConsent
-                location="bottom"
-                buttonText="Sure thing!"
-                cookieName="cookieConsent"
-                style={{ background: "#2B373B" }}
-                buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
-                expires={150}
-              >
-                Quantify stores cookies on your PC to enhance user experience.
-                {"  "}
-                <Link
-                  style={{ fontSize: "10px", cursor: "pointer" }}
-                  to={ROUTES.COOKIE_POLICY}
-                  key="Learn more..."
-                />
-              </CookieConsent>
+            <MuiThemeProvider theme={ muiTheme }>
+              <ScrollToTop scrollbars={ this.scrollbars }>
+                  <CssBaseline/>
+                  <TitleBar changeTheme={ setThemeColour }/>
+                {/* Main page content below */ }
+                <main style={ styles.main } data-theme={ theme.palette.type }>
+                    { routers }
+                  </main>
+                  <Footer/>
+                <CookieConsent
+                  location="bottom"
+                  buttonText="Sure thing!"
+                  cookieName="cookieConsent"
+                  style={ { background: "#2B373B" } }
+                  buttonStyle={ { color: "#4e503b", fontSize: "13px" } }
+                  expires={ 150 }
+                >
+                  Quantify stores cookies on your PC to enhance user experience.
+                  { "  " }
+                  <Link
+                    style={ { fontSize: "10px", cursor: "pointer" } }
+                    to={ ROUTES.COOKIE_POLICY }
+                    key="Learn more..."
+                  />
+                </CookieConsent>
 
-              <Fab
-                size="medium"
-                color="secondary"
-                aria-label="Feedback"
-                style={{ margin: 16, position: "fixed", bottom: 0, right: 0 }}
-                className="fabHoverLarge"
-                onClick={() => {
-                  swal.fire({
-                    title: "Quantify: Website Feedback",
-                    html: `<p>Thanks for clicking the Feedback button.</p>
-                          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe4zekN3dow3w8uFEg_8Hg-vbVvOxwW22KiWacP1YycRdlcpg/viewform?embedded=true" style="width: 90%; margin: auto; height: 450px; height: 40vh" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>`,
-                    showCloseButton: true,
-                    showCancelButton: false,
-                    focusConfirm: false,
-                    confirmButtonText: "Close Dialog",
-                    confirmButtonAriaLabel: "Close Dialog",
-                  });
-                }}
-              >
-                <FeedbackIcon />
-              </Fab>
-            </ScrollToTop>
+                <Fab
+                  size="medium"
+                  color="secondary"
+                  aria-label="Feedback"
+                  style={ { margin: 16, position: "fixed", bottom: 0, right: 0 } }
+                  className="fabHoverLarge"
+                  onClick={ () => {
+                    swal.fire({
+                      title: "Quantify: Website Feedback",
+                      html: `<p>Thanks for clicking the Feedback button.</p>
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe4zekN3dow3w8uFEg_8Hg-vbVvOxwW22KiWacP1YycRdlcpg/viewform?embedded=true" style="width: 90%; margin: auto; height: 450px; height: 40vh" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>`,
+                      showCloseButton: true,
+                      showCancelButton: false,
+                      focusConfirm: false,
+                      confirmButtonText: "Close Dialog",
+                      confirmButtonAriaLabel: "Close Dialog",
+                    });
+                  } }
+                >
+                  <FeedbackIcon/>
+                </Fab>
+              </ScrollToTop>
+            </MuiThemeProvider>
           </Router>
         </Scrollbars>
       </>
