@@ -22,8 +22,8 @@ import {
 import { faAndroid } from "@fortawesome/free-brands-svg-icons";
 
 const menuContent = [
-  [{ text: "Home", url: ROUTES.HOME, icon: faHome }],
-  [{ text: "Development Blog", url: ROUTES.BLOG, icon: faCommentAlt }],
+  [ { text: "Home", url: ROUTES.HOME, icon: faHome } ],
+  [ { text: "Development Blog", url: ROUTES.BLOG, icon: faCommentAlt } ],
   [
     {
       text: "Downloads & Source",
@@ -32,6 +32,7 @@ const menuContent = [
     },
     { text: "Documentation", url: ROUTES.WIKI, icon: faBookOpen },
   ],
+  [ { text: "Recommended Apps", url: ROUTES.RECOMMENDED_APPS, icon: faAndroid } ],
 ];
 
 const styles = {
@@ -51,26 +52,26 @@ class NavDrawerContent extends Component {
   render() {
     return (
       <>
-        {menuContent.map((menuGroup) => (
+        { menuContent.map((menuGroup) => (
           <>
             <List>
-              {menuGroup.map((item) => (
-                <ListItem button key={item.text} to={item.url} component={Link}>
+              { menuGroup.map((item) => (
+                <ListItem button key={ item.text } to={ item.url } component={ Link }>
                   <ListItemIcon>
                     <FontAwesomeIcon
-                      icon={item.icon}
+                      icon={ item.icon }
                       fixedWidth
-                      style={{ fontSize: "1.2rem" }} // slightly larger than normal: more visible detail
+                      style={ { fontSize: "1.2rem" } } // slightly larger than normal: more visible detail
                     />
                   </ListItemIcon>
-                  <ListItemText primary={item.text} />
+                  <ListItemText primary={ item.text }/>
                 </ListItem>
-              ))}
+              )) }
             </List>
 
-            {0 < menuContent.length ? <Divider /> : null}
+            { 0 < menuContent.length ? <Divider/> : null }
           </>
-        ))}
+        )) }
       </>
     );
   }

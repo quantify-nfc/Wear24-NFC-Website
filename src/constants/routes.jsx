@@ -1,8 +1,11 @@
 export const HOME = "/";
+
 export const BLOG_OLD = "/blog";
 export const BLOG = "//blog.wear24rom.com";
+
 export const DOWNLOAD = "/download";
 export const WIKI = "/wiki";
+export const RECOMMENDED_APPS = "/apps";
 
 export const SIGN_IN = "/signin";
 
