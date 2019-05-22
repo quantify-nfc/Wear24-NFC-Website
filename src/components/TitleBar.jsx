@@ -82,18 +82,15 @@ class TitleBar extends Component {
     const { ghMenuAnchor } = this.state;
     const ghMenuOpen = Boolean(ghMenuAnchor);
 
-    const ghMenuItems = [
-      {
-        text: "Kernel Repository",
-        url: EXTERNAL_LINKS.GITHUB_KERNEL_REPO,
-        linkTarget: "_blank",
-      },
-      {
-        text: "ROM Repository",
-        url: EXTERNAL_LINKS.GITHUB_ROM_REPO,
-        linkTarget: "_blank",
-      },
-    ];
+    const ghMenuItems = [];
+
+    Object.keys(EXTERNAL_LINKS.GITHUB_REPOS).forEach((item) => {
+      ghMenuItems.push({
+        text: item,
+        url: EXTERNAL_LINKS.GITHUB_REPOS[item],
+        target: "_blank",
+      });
+    });
 
     return (
       <div className={this.elStyles.root}>
