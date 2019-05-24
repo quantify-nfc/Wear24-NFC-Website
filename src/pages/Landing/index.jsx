@@ -17,6 +17,7 @@ import ExternalLink from "../../components/ExternalLink";
 
 import BookOpenPageVariantIcon from "mdi-react/BookOpenPageVariantIcon";
 import DownloadIcon from "mdi-react/DownloadIcon";
+import InfoIcon from "mdi-react/InfoOutlineIcon";
 import ForumIcon from "mdi-react/ForumIcon";
 import * as ROUTES from "../../constants/routes";
 
@@ -48,6 +49,9 @@ const styles = (theme) => ({
     textShadow:
       "-1px -1px 0 rgba(0, 0, 0, 0.87), 1px -1px 0 rgba(0, 0, 0, 0.87), -1px 1px 0 rgba(0, 0, 0, 0.87), 1px 1px 0 rgba(0, 0, 0, 0.87)",
   },
+  mainTitle: {
+    marginBottom: theme.spacing(1),
+  },
 });
 
 class Landing extends Component {
@@ -56,7 +60,7 @@ class Landing extends Component {
   };
 
   render() {
-    let { classes } = this.props;
+    let { classes, theme } = this.props;
 
     return (
       <section id="landing-container" style={{ margin: "auto" }}>
@@ -140,6 +144,10 @@ class Landing extends Component {
             </Grid>
           </section>
         </MediaQuery>
+
+        <section style={{ marginTop: 4, width: "100%" }}>
+          {AboutSectionContent(classes, theme)}
+        </section>
       </section>
     );
   }
@@ -261,6 +269,30 @@ const LandingGridContent = (classes) => {
         </Card>
       </Grid>
     </>
+  );
+};
+
+const AboutSectionContent = (classes, theme) => {
+  return (
+    <Paper
+      elevation={2}
+      component="section"
+      style={{
+        width: "100%",
+        marginBottom: -8,
+        padding: theme.spacing(6),
+      }}
+    >
+      <Typography variant="h3" className={classes.mainTitle}>
+        <InfoIcon
+          size={42}
+          style={{ margin: "4px 8px 0 0", float: "left" }}
+          color={theme.palette.secondary.main}
+        />
+        About Quantify
+      </Typography>
+      <br />
+    </Paper>
   );
 };
 
