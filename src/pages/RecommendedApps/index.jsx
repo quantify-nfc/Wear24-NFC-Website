@@ -250,19 +250,24 @@ class AppsContent extends React.Component {
         </Typography>
         <Divider variant="middle" className={classes.dividerMargin} />
         <br />
-
+        <Typography variant="body1" paragraph>
+          <InAppPurchasesIcon size={18} /> = Contains in-app purchases
+        </Typography>
+        <Typography variant="body1" paragraph>
+          <PaidAppIcon size={18} /> = Paid app
+        </Typography>
+        <br />
         <Typography variant="h4" className={classes.mainTitle}>
           App List
         </Typography>
         <br />
-
         <Masonry
           className={"app-grid-list"}
           options={{ fitWidth: true }}
           style={{ margin: "auto" }}
         >
-          {AppList.map((item) => (
-            <AppCard {...item} />
+          {AppList.map((item, i) => (
+            <AppCard key={i} {...item} />
           ))}
         </Masonry>
       </>
@@ -289,15 +294,6 @@ const UseCardStyles = makeStyles(() => ({
 }));
 
 class AppCard extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   // this.state = {expanded: false};
-  // }
-
-  // handleExpandClick = () => {
-  //   this.setState({expanded: !this.state.expanded});
-  // };
-
   render() {
     const {
       title,
@@ -312,17 +308,15 @@ class AppCard extends Component {
       inAppPurchases,
     } = this.props;
 
-    // const {expanded} = this.state;
-
     const classes = UseCardStyles();
 
     const cardActions = (
-      <Typography color={"textSecondary"}>
+      <Typography color="textSecondary">
         {inAppPurchases ? (
           <Tooltip
             title="In-app purchases"
             aria-label="In-app purchases"
-            placement={"top"}
+            placement="top"
           >
             <InAppPurchasesIcon size={24} />
           </Tooltip>
@@ -330,7 +324,7 @@ class AppCard extends Component {
           ""
         )}
         {paid ? (
-          <Tooltip title="Paid app" aria-label="Paid app" placement={"top"}>
+          <Tooltip title="Paid app" aria-label="Paid app" placement="top">
             <PaidAppIcon size={24} />
           </Tooltip>
         ) : (
@@ -370,13 +364,8 @@ class AppCard extends Component {
           subheader={subtitle}
           action={cardActions}
         />
-        <CardContent>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {/*{briefContent}*/}
-            {expandedContent}
-          </Typography>
-        </CardContent>
-        <CardActions className={classes.actions} disableActionSpacing>
+        <CardContent>{expandedContent}</CardContent>
+        <CardActions style={classes.actions} disableSpacing>
           <Tooltip
             title="Open in Google Play Store"
             aria-label="Open in Google Play Store"
@@ -397,7 +386,7 @@ class AppCard extends Component {
             <Tooltip
               title="Open development forum"
               aria-label="Open development forum"
-              placement={"top"}
+              placement="top"
             >
               <IconButton aria-label="Open development forum">
                 <BetterLink
@@ -413,7 +402,7 @@ class AppCard extends Component {
             <Tooltip
               title="Open development forum (disabled)"
               aria-label="Open development forum (disabled)"
-              placement={"top"}
+              placement="top"
             >
               <div>
                 <IconButton
@@ -430,7 +419,7 @@ class AppCard extends Component {
             <Tooltip
               title="Open official website"
               aria-label="Open official website"
-              placement={"top"}
+              placement="top"
             >
               <IconButton aria-label="Open official website">
                 <BetterLink
@@ -446,7 +435,7 @@ class AppCard extends Component {
             <Tooltip
               title="Open official website (disabled)"
               aria-label="Open official website (disabled)"
-              placement={"top"}
+              placement="top"
             >
               <div>
                 <IconButton
@@ -458,29 +447,7 @@ class AppCard extends Component {
               </div>
             </Tooltip>
           )}
-
-          {/*
-          <Tooltip
-            title="Read more"
-            aria-label="Read more"
-            placement={"top"}
-          >
-            <IconButton
-              className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,S
-              })}
-              onClick={this.handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="Read more"
-            >
-              <ExpandMoreIcon/>
-            </IconButton>
-          </Tooltip>
-          */}
         </CardActions>
-        {/*<Collapse in={expanded} timeout="auto" unmountOnExit>*/}
-        {/*  <CardContent>{expandedContent}</CardContent>*/}
-        {/*</Collapse>*/}
       </Card>
     );
   }
