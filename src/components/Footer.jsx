@@ -16,7 +16,7 @@ class Footer extends Component {
     return (
       <>
         <footer style={{ width: "100%" }}>
-          <Paper style={{ width: "100%", padding: 32 }} elevation={2}>
+          <Paper style={{ width: "100%", padding: 32 }} elevation={8}>
             <Typography variant="h5" style={{ padding: 16 }}>
               Sitemap
             </Typography>
@@ -28,13 +28,13 @@ class Footer extends Component {
             />
             <SitemapLink to={ROUTES.BLOG} text="Blog" />
             <SitemapLink to={ROUTES.WIKI} text="Documentation" />
-            <SitemapLink to={ROUTES.SIGN_IN} text="Sign in" />
+            {/* <SitemapLink to={ROUTES.SIGN_IN} text="Sign in" /> */}
             <SitemapLink
               to={ROUTES.COOKIE_POLICY}
               text="Privacy &amp; Cookies Policy"
             />
             <Typography variant="body2" style={{ marginTop: 16 }}>
-              v2.3 - Created by{" "}
+              v2.4 - Created by{" "}
               <ExternalLink url="https://github.com/davwheat">
                 davwheat
               </ExternalLink>{" "}
