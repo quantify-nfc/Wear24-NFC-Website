@@ -15,10 +15,12 @@ import {
 import MediaQuery from "react-responsive";
 import ExternalLink from "../../components/ExternalLink";
 
-import BookOpenPageVariantIcon from "mdi-react/BookOpenPageVariantIcon";
-import DownloadIcon from "mdi-react/DownloadIcon";
+import BookOpenPageVariantIcon from "mdi-react/BookOutlineIcon";
+import DownloadIcon from "mdi-react/DownloadOutlineIcon";
 import InfoIcon from "mdi-react/InfoOutlineIcon";
-import ForumIcon from "mdi-react/ForumIcon";
+import ForumIcon from "mdi-react/ForumOutlineIcon";
+import TimelineIcon from "mdi-react/TimelineOutlineIcon";
+
 import * as ROUTES from "../../constants/routes";
 
 import WearOSBackdropPNG from "../../img/wearos-backdrop.png";
@@ -52,6 +54,14 @@ const styles = (theme) => ({
   mainTitle: {
     marginBottom: theme.spacing(1),
   },
+  largeSubtitle: {
+    fontSize: "1.4rem",
+    lineHeight: 1.75,
+  },
+  largeBody: {
+    fontSize: "1.25rem",
+    lineHeight: 1.75,
+  },
 });
 
 class Landing extends Component {
@@ -60,7 +70,7 @@ class Landing extends Component {
   };
 
   render() {
-    let { classes, theme } = this.props;
+    let { classes } = this.props;
 
     return (
       <section id="landing-container" style={{ margin: "auto" }}>
@@ -133,21 +143,17 @@ class Landing extends Component {
         <MediaQuery query="(min-width: 550px)">
           <section style={{ marginTop: -16, padding: 64, maxWidth: "100%" }}>
             <Grid container spacing={6} justify="space-around">
-              {LandingGridContent(classes)}
+              {LandingGridContent(classes, theme)}
             </Grid>
           </section>
         </MediaQuery>
         <MediaQuery query="(max-width: 550px)">
           <section style={{ marginTop: 6, padding: 24, maxWidth: "100%" }}>
             <Grid container spacing={4} justify="space-around">
-              {LandingGridContent(classes)}
+              {LandingGridContent(classes, theme)}
             </Grid>
           </section>
         </MediaQuery>
-
-        <section style={{ marginTop: 4, width: "100%" }}>
-          {AboutSectionContent(classes, theme)}
-        </section>
       </section>
     );
   }
@@ -158,13 +164,17 @@ Landing.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-const LandingGridContent = (classes) => {
+const LandingGridContent = (classes, theme) => {
   return (
     <>
       <Grid item xs={12} sm={12} md={12} lg={4}>
         <Card className={classes.paper}>
           <CardContent>
-            <ForumIcon size={50} className={classes.center} />
+            <ForumIcon
+              size={50}
+              className={classes.center}
+              color={theme.palette.secondary.main}
+            />
             <Typography variant="h4" gutterBottom={true} align="center">
               Blog
             </Typography>
@@ -201,7 +211,11 @@ const LandingGridContent = (classes) => {
       <Grid item xs={12} sm={12} md={12} lg={4}>
         <Card className={classes.paper}>
           <CardContent>
-            <DownloadIcon size={50} className={classes.center} />
+            <DownloadIcon
+              size={50}
+              className={classes.center}
+              color={theme.palette.secondary.main}
+            />
             <Typography variant="h4" gutterBottom={true} align="center">
               Downloads
             </Typography>
@@ -242,7 +256,11 @@ const LandingGridContent = (classes) => {
       <Grid item xs={12} sm={12} md={12} lg={4}>
         <Card className={classes.paper}>
           <CardContent>
-            <BookOpenPageVariantIcon size={50} className={classes.center} />
+            <BookOpenPageVariantIcon
+              size={50}
+              className={classes.center}
+              color={theme.palette.secondary.main}
+            />
             <Typography variant="h4" gutterBottom={true} align="center">
               Documentation
             </Typography>
@@ -280,18 +298,152 @@ const AboutSectionContent = (classes, theme) => {
       style={{
         width: "100%",
         marginBottom: -8,
-        padding: theme.spacing(6),
+        paddingTop: theme.spacing(6),
+        paddingBottom: theme.spacing(6),
+        paddingLeft: theme.spacing(40),
+        paddingRight: theme.spacing(40),
       }}
     >
-      <Typography variant="h3" className={classes.mainTitle}>
+      <Typography variant="h2" className={classes.mainTitle}>
         <InfoIcon
-          size={42}
-          style={{ margin: "4px 8px 0 0", float: "left" }}
+          size={56}
+          style={{ margin: "1px 16px 0 0", float: "left" }}
           color={theme.palette.secondary.main}
         />
         About Quantify
       </Typography>
       <br />
+      <Typography
+        gutterBottom
+        variant="subtitle1"
+        paragraph
+        className={classes.largeSubtitle}
+      >
+        Quantify is a project created and maintained by two students:{" "}
+        <ExternalLink url="https://github.com/JaredTheWolfy">
+          'Jared'
+        </ExternalLink>{" "}
+        and{" "}
+        <ExternalLink url="https://github.com/davwheat">
+          'davwheat'
+        </ExternalLink>
+        . Our aim is to activate NFC (including Google Pay/Mobile Payments) on
+        the{" "}
+        <ExternalLink url="https://www.verizonwireless.com/connected-devices/verizon-wear24/">
+          Verizon Wear24 smartwatch
+        </ExternalLink>
+        . A feature that Verizon promised but never delivered.
+      </Typography>
+
+      <Typography
+        gutterBottom
+        variant="body1"
+        paragraph
+        className={classes.largeBody}
+      >
+        All of our progress is tracked and committed on GitHub via our
+        organisation, Quantify-NFC. You can access our repositories via the
+        "octo-cat" button in the top right. Anyone can fork our project, create
+        changes or open a pull request. We love contributions!
+      </Typography>
+
+      <Typography
+        gutterBottom
+        variant="body1"
+        paragraph
+        className={classes.largeBody}
+      >
+        We use the{" "}
+        <ExternalLink url="https://source.android.com/">
+          Android Open Source Project
+        </ExternalLink>{" "}
+        for our custom ROM and Kernel, distributed under the licenses described
+        on the{" "}
+        <ExternalLink url="https://source.android.com/setup/start/licenses">
+          AOSP Licenses page
+        </ExternalLink>
+        . Any repositories other repositories created by Quantify on their
+        GitHub are license-free unless otherwise stated.
+      </Typography>
+    </Paper>
+  );
+};
+
+const TimelineSectionContent = (classes, theme) => {
+  return (
+    <Paper
+      elevation={0}
+      component="section"
+      style={{
+        width: "100%",
+        marginBottom: -8,
+        paddingTop: theme.spacing(6),
+        paddingBottom: theme.spacing(6),
+        paddingLeft: theme.spacing(40),
+        paddingRight: theme.spacing(40),
+      }}
+    >
+      <Typography variant="h2" className={classes.mainTitle}>
+        <InfoIcon
+          size={56}
+          style={{ margin: "1px 16px 0 0", float: "left" }}
+          color={theme.palette.secondary.main}
+        />
+        About Quantify
+      </Typography>
+      <br />
+      <Typography
+        gutterBottom
+        variant="subtitle1"
+        paragraph
+        className={classes.largeSubtitle}
+      >
+        Quantify is a project created and maintained by two students:{" "}
+        <ExternalLink url="https://github.com/JaredTheWolfy">
+          'Jared'
+        </ExternalLink>{" "}
+        and{" "}
+        <ExternalLink url="https://github.com/davwheat">
+          'davwheat'
+        </ExternalLink>
+        . Our aim is to activate NFC (including Google Pay/Mobile Payments) on
+        the{" "}
+        <ExternalLink url="https://www.verizonwireless.com/connected-devices/verizon-wear24/">
+          Verizon Wear24 smartwatch
+        </ExternalLink>
+        . A feature that Verizon promised but never delivered.
+      </Typography>
+
+      <Typography
+        gutterBottom
+        variant="body1"
+        paragraph
+        className={classes.largeBody}
+      >
+        All of our progress is tracked and committed on GitHub via our
+        organisation, Quantify-NFC. You can access our repositories via the
+        "octo-cat" button in the top right. Anyone can fork our project, create
+        changes or open a pull request. We love contributions!
+      </Typography>
+
+      <Typography
+        gutterBottom
+        variant="body1"
+        paragraph
+        className={classes.largeBody}
+      >
+        We use the{" "}
+        <ExternalLink url="https://source.android.com/">
+          Android Open Source Project
+        </ExternalLink>{" "}
+        for our custom ROM and Kernel, distributed under the licenses described
+        on the{" "}
+        <ExternalLink url="https://source.android.com/setup/start/licenses">
+          AOSP Licenses page
+        </ExternalLink>
+        . Any repositories other repositories created by Quantify on their
+        GitHub are license-free unless otherwise stated.
+      </Typography>
     </Paper>
   );
 };

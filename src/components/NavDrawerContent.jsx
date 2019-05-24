@@ -12,27 +12,30 @@ import Link from "./Link";
 
 import * as ROUTES from "../constants/routes";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCommentAlt,
-  faHome,
-  faDownload,
-  faBookOpen,
-} from "@fortawesome/free-solid-svg-icons";
-import { faAndroid } from "@fortawesome/free-brands-svg-icons";
+import HomeIcon from "mdi-react/HomeOutlineIcon";
+import ForumIcon from "mdi-react/ForumOutlineIcon";
+import DownloadIcon from "mdi-react/DownloadOutlineIcon";
+import BookIcon from "mdi-react/BookOutlineIcon";
+import AndroidIcon from "mdi-react/AndroidIcon";
 
 const menuContent = [
-  [ { text: "Home", url: ROUTES.HOME, icon: faHome } ],
-  [ { text: "Development Blog", url: ROUTES.BLOG, icon: faCommentAlt } ],
+  [{ text: "Home", url: ROUTES.HOME, icon: <HomeIcon /> }],
+  [{ text: "Development Blog", url: ROUTES.BLOG, icon: <ForumIcon /> }],
   [
     {
       text: "Downloads & Source",
       url: ROUTES.DOWNLOAD,
-      icon: faDownload,
+      icon: <DownloadIcon />,
     },
-    { text: "Documentation", url: ROUTES.WIKI, icon: faBookOpen },
+    { text: "Documentation", url: ROUTES.WIKI, icon: <BookIcon /> },
   ],
-  [ { text: "Recommended Apps", url: ROUTES.RECOMMENDED_APPS, icon: faAndroid } ],
+  [
+    {
+      text: "Recommended Apps",
+      url: ROUTES.RECOMMENDED_APPS,
+      icon: <AndroidIcon />,
+    },
+  ],
 ];
 
 const styles = {
@@ -52,26 +55,20 @@ class NavDrawerContent extends Component {
   render() {
     return (
       <>
-        { menuContent.map((menuGroup) => (
+        {menuContent.map((menuGroup) => (
           <>
             <List>
-              { menuGroup.map((item) => (
-                <ListItem button key={ item.text } to={ item.url } component={ Link }>
-                  <ListItemIcon>
-                    <FontAwesomeIcon
-                      icon={ item.icon }
-                      fixedWidth
-                      style={ { fontSize: "1.2rem" } } // slightly larger than normal: more visible detail
-                    />
-                  </ListItemIcon>
-                  <ListItemText primary={ item.text }/>
+              {menuGroup.map((item) => (
+                <ListItem button key={item.text} to={item.url} component={Link}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} />
                 </ListItem>
-              )) }
+              ))}
             </List>
 
-            { 0 < menuContent.length ? <Divider/> : null }
+            {0 < menuContent.length ? <Divider /> : null}
           </>
-        )) }
+        ))}
       </>
     );
   }
