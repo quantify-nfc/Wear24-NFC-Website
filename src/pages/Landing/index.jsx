@@ -21,6 +21,12 @@ import InfoIcon from "mdi-react/InfoOutlineIcon";
 import ForumIcon from "mdi-react/ForumOutlineIcon";
 import TimelineIcon from "mdi-react/TimelineOutlineIcon";
 
+import CollaborateIcon from "mdi-react/AccountMultipleOutlineIcon";
+import StartProjectIcon from "mdi-react/EditOutlineIcon";
+import StarIcon from "mdi-react/StarOutlineIcon";
+
+import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
+
 import * as ROUTES from "../../constants/routes";
 
 import WearOSBackdropPNG from "../../img/wearos-backdrop.png";
@@ -157,6 +163,10 @@ class Landing extends Component {
 
         <section style={{ marginTop: 4, width: "100%" }}>
           {AboutSectionContent(classes, theme)}
+        </section>
+
+        <section style={{ marginTop: 4, width: "100%" }}>
+          {TimelineSectionContent(classes, theme)}
         </section>
       </section>
     );
@@ -374,9 +384,18 @@ const AboutSectionContent = (classes, theme) => {
 };
 
 const TimelineSectionContent = (classes, theme) => {
+  const events = [
+    { ts: "2018-08", text: "Registred" },
+    { ts: "2017-09-16T12:21:46.587Z", text: "Clicked Cart" },
+    { ts: "2017-09-16T12:20:46.587Z", text: "Clicked Checkout" },
+    { ts: "2017-09-17T12:22:46.587Z", text: "Logged in" },
+    { ts: "2017-09-17T12:21:46.587Z", text: "Clicked Home Page" },
+    { ts: "2017-09-17T12:20:46.587Z", text: "Edited Profile" },
+  ];
+
   return (
     <Paper
-      elevation={0}
+      elevation={2}
       component="section"
       style={{
         width: "100%",
@@ -388,7 +407,7 @@ const TimelineSectionContent = (classes, theme) => {
       }}
     >
       <Typography variant="h2" className={classes.mainTitle}>
-        <InfoIcon
+        <TimelineIcon
           size={56}
           style={{ margin: "1px 16px 0 0", float: "left" }}
           color={theme.palette.secondary.main}
@@ -396,6 +415,151 @@ const TimelineSectionContent = (classes, theme) => {
         Progress Timeline
       </Typography>
       <br />
+      {/* <VerticalTimeline>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          date="Sep 2018"
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+          icon={<StartProjectIcon />}
+        >
+          <h3 className="vertical-timeline-element-title">Project created</h3>
+          <h4 className="vertical-timeline-element-subtitle">
+            on the XDA Forums
+          </h4>
+          <p>
+            Jared created the Wear24 NFC Project to port Google Pay to his watch
+            on the XDA Forums
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          className="vertical-timeline-element--work"
+          date="Jan 2019"
+          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+          icon={<CollaborateIcon />}
+        >
+          <h3 className="vertical-timeline-element-title">
+            
+          </h3>
+          <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
+          <p>
+            davwheat heard about the project on the XDA Developer Forums and
+            began to collaborate with Jared on the project.
+          </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
+          icon={<StarIcon />}
+        />
+      </VerticalTimeline> */}
+      <Timeline lineColor={"rgba(0,0,0,0.2)"}>
+        <TimelineItem
+          key="001"
+          dateComponent={
+            <Paper
+              elevation={8}
+              style={{
+                float: "left",
+                width: "75%",
+                padding: theme.spacing(2),
+              }}
+            >
+              <Typography variant="h6">September 2018</Typography>
+            </Paper>
+          }
+          dateInnerStyle={{ background: "rgba(0,0,0,0.6)", color: "#eee" }}
+        >
+          <Paper elevation={16} style={{ padding: theme.spacing(4) }}>
+            <Typography variant="h4">Project Started</Typography>
+            <Typography variant="subtitle1">
+              The Wear24 NFC project was born
+            </Typography>
+            <Typography variant="body1">
+              Jared initially created the Wear24 NFC Project to port Google Pay
+              to the Wear24 on the XDA Forums.
+            </Typography>
+          </Paper>
+        </TimelineItem>
+        <TimelineItem
+          key="002"
+          dateComponent={
+            <Paper
+              elevation={8}
+              style={{
+                float: "left",
+                width: "75%",
+                padding: theme.spacing(2),
+              }}
+            >
+              <Typography variant="h6">January 2019</Typography>
+            </Paper>
+          }
+          dateInnerStyle={{ background: "rgba(0,0,0,0.6)", color: "#eee" }}
+        >
+          <Paper elevation={16} style={{ padding: theme.spacing(4) }}>
+            <Typography variant="h4">davwheat joined</Typography>
+            <Typography variant="subtitle1" />
+            <Typography variant="body1">
+              After buying his own Wear24, davwheat heard about the project on
+              the XDA Developer Forums and began to collaborate with Jared on
+              the project.
+            </Typography>
+          </Paper>
+        </TimelineItem>
+        <TimelineItem
+          key="003"
+          dateComponent={
+            <Paper
+              elevation={8}
+              style={{
+                float: "left",
+                width: "75%",
+                padding: theme.spacing(2),
+              }}
+            >
+              <Typography variant="h6">February/March 2019</Typography>
+            </Paper>
+          }
+          dateInnerStyle={{ background: "rgba(0,0,0,0.6)", color: "#eee" }}
+        >
+          <Paper elevation={16} style={{ padding: theme.spacing(4) }}>
+            <Typography variant="h4">Building Kernel</Typography>
+            <Typography variant="subtitle1">Working Dorado Kernel</Typography>
+            <Typography variant="body1">
+              Using the Android Open Source Project and Quanta's dorado source
+              files, we built our own Android Kernel for the Wear24 with several
+              performance and battery improvements.
+            </Typography>
+          </Paper>
+        </TimelineItem>
+        <TimelineItem
+          key="003"
+          dateComponent={
+            <Paper
+              elevation={8}
+              style={{
+                float: "left",
+                width: "75%",
+                padding: theme.spacing(2),
+              }}
+            >
+              <Typography variant="h6">Q3/Q4 2019</Typography>
+            </Paper>
+          }
+          dateInnerStyle={{ background: "rgba(0,0,0,0.6)", color: "#eee" }}
+        >
+          <Paper elevation={16} style={{ padding: theme.spacing(4) }}>
+            <Typography variant="h4">Building ROM</Typography>
+            <Typography variant="subtitle1">
+              Working NFC ROM &amp; Kernel
+            </Typography>
+            <Typography variant="body1">
+              We aim to have a fully functional version of WearOS available for
+              the Wear24 by the end of 2019. A version which has many battery
+              improvements, no bloatware and, most importantly, NFC!
+            </Typography>
+          </Paper>
+        </TimelineItem>
+      </Timeline>
     </Paper>
   );
 };
