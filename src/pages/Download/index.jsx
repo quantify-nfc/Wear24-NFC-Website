@@ -19,7 +19,7 @@ import * as ROUTES from "../../constants/routes";
 import DownloadInfo from "../../constants/downloads";
 import * as EXTERNAL_URLS from "../../constants/externalUrls";
 
-import DownloadIcon from "mdi-react/DownloadIcon";
+import DownloadIcon from "mdi-react/DownloadOutlineIcon";
 
 const styles = (theme) => ({
   mainSection: {
