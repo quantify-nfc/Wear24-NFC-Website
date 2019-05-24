@@ -70,7 +70,7 @@ class Landing extends Component {
   };
 
   render() {
-    let { classes } = this.props;
+    let { classes, theme } = this.props;
 
     return (
       <section id="landing-container" style={{ margin: "auto" }}>
@@ -154,6 +154,10 @@ class Landing extends Component {
             </Grid>
           </section>
         </MediaQuery>
+
+        <section style={{ marginTop: 4, width: "100%" }}>
+          {AboutSectionContent(classes, theme)}
+        </section>
       </section>
     );
   }
@@ -389,61 +393,9 @@ const TimelineSectionContent = (classes, theme) => {
           style={{ margin: "1px 16px 0 0", float: "left" }}
           color={theme.palette.secondary.main}
         />
-        About Quantify
+        Progress Timeline
       </Typography>
       <br />
-      <Typography
-        gutterBottom
-        variant="subtitle1"
-        paragraph
-        className={classes.largeSubtitle}
-      >
-        Quantify is a project created and maintained by two students:{" "}
-        <ExternalLink url="https://github.com/JaredTheWolfy">
-          'Jared'
-        </ExternalLink>{" "}
-        and{" "}
-        <ExternalLink url="https://github.com/davwheat">
-          'davwheat'
-        </ExternalLink>
-        . Our aim is to activate NFC (including Google Pay/Mobile Payments) on
-        the{" "}
-        <ExternalLink url="https://www.verizonwireless.com/connected-devices/verizon-wear24/">
-          Verizon Wear24 smartwatch
-        </ExternalLink>
-        . A feature that Verizon promised but never delivered.
-      </Typography>
-
-      <Typography
-        gutterBottom
-        variant="body1"
-        paragraph
-        className={classes.largeBody}
-      >
-        All of our progress is tracked and committed on GitHub via our
-        organisation, Quantify-NFC. You can access our repositories via the
-        "octo-cat" button in the top right. Anyone can fork our project, create
-        changes or open a pull request. We love contributions!
-      </Typography>
-
-      <Typography
-        gutterBottom
-        variant="body1"
-        paragraph
-        className={classes.largeBody}
-      >
-        We use the{" "}
-        <ExternalLink url="https://source.android.com/">
-          Android Open Source Project
-        </ExternalLink>{" "}
-        for our custom ROM and Kernel, distributed under the licenses described
-        on the{" "}
-        <ExternalLink url="https://source.android.com/setup/start/licenses">
-          AOSP Licenses page
-        </ExternalLink>
-        . Any repositories other repositories created by Quantify on their
-        GitHub are license-free unless otherwise stated.
-      </Typography>
     </Paper>
   );
 };
