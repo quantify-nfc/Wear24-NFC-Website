@@ -68,6 +68,12 @@ const styles = (theme) => ({
     fontSize: "1.25rem",
     lineHeight: 1.75,
   },
+  timelineHeading: {
+    marginBottom: theme.spacing(0.4) + "px !important",
+  },
+  timelineSubheading: {
+    marginBottom: theme.spacing(1.5) + "px !important",
+  },
 });
 
 class Landing extends Component {
@@ -162,11 +168,140 @@ class Landing extends Component {
         </MediaQuery>
 
         <section style={{ marginTop: 4, width: "100%" }}>
-          {AboutSectionContent(classes, theme)}
+          <MediaQuery query="(min-width: 1280px)">
+            <Paper
+              elevation={2}
+              component="section"
+              style={{
+                width: "100%",
+                marginBottom: -8,
+                paddingTop: theme.spacing(6),
+                paddingBottom: theme.spacing(6),
+                paddingLeft: theme.spacing(40),
+                paddingRight: theme.spacing(40),
+              }}
+            >
+              {AboutSectionContent(classes, theme)}
+            </Paper>
+          </MediaQuery>
+          <MediaQuery query="(min-width: 1000px) and (max-width: 1280px)">
+            <Paper
+              elevation={2}
+              component="section"
+              style={{
+                width: "100%",
+                marginBottom: -8,
+                paddingTop: theme.spacing(6),
+                paddingBottom: theme.spacing(6),
+                paddingLeft: theme.spacing(20),
+                paddingRight: theme.spacing(20),
+              }}
+            >
+              {AboutSectionContent(classes, theme)}
+            </Paper>
+          </MediaQuery>
+          <MediaQuery query="(min-width: 550px) and (max-width: 1000px)">
+            <Paper
+              elevation={2}
+              component="section"
+              style={{
+                width: "100%",
+                marginBottom: -8,
+                paddingTop: theme.spacing(6),
+                paddingBottom: theme.spacing(6),
+                paddingLeft: theme.spacing(8),
+                paddingRight: theme.spacing(8),
+              }}
+            >
+              {AboutSectionContent(classes, theme)}
+            </Paper>
+          </MediaQuery>
+          <MediaQuery query="(max-width: 550px)">
+            <Paper
+              elevation={2}
+              component="section"
+              style={{
+                width: "100%",
+                marginBottom: -8,
+                paddingTop: theme.spacing(6),
+                paddingBottom: theme.spacing(6),
+                paddingLeft: theme.spacing(4),
+                paddingRight: theme.spacing(4),
+              }}
+            >
+              {AboutSectionContent(classes, theme)}
+            </Paper>
+          </MediaQuery>
         </section>
 
         <section style={{ marginTop: 4, width: "100%" }}>
-          {TimelineSectionContent(classes, theme)}
+          <MediaQuery query="(min-width: 1280px)">
+            <Paper
+              elevation={2}
+              component="section"
+              style={{
+                width: "100%",
+                marginBottom: -8,
+                paddingTop: theme.spacing(6),
+                paddingBottom: theme.spacing(6),
+                paddingLeft: theme.spacing(40),
+                paddingRight: theme.spacing(40),
+              }}
+            >
+              {TimelineSectionContent(classes, theme)}
+            </Paper>
+          </MediaQuery>
+          <MediaQuery query="(min-width: 1000px) and (max-width: 1280px)">
+            <Paper
+              elevation={2}
+              component="section"
+              style={{
+                width: "100%",
+                marginBottom: -8,
+                paddingTop: theme.spacing(6),
+                paddingBottom: theme.spacing(6),
+                paddingLeft: theme.spacing(20),
+                paddingRight: theme.spacing(20),
+              }}
+            >
+              {TimelineSectionContent(classes, theme)}
+            </Paper>
+          </MediaQuery>
+          <MediaQuery query="(min-width: 900px) and (max-width: 1000px)">
+            <Paper
+              elevation={2}
+              component="section"
+              style={{
+                width: "100%",
+                marginBottom: -8,
+                paddingTop: theme.spacing(6),
+                paddingBottom: theme.spacing(6),
+                paddingLeft: theme.spacing(8),
+                paddingRight: theme.spacing(8),
+              }}
+            >
+              {TimelineSectionContent(classes, theme)}
+            </Paper>
+          </MediaQuery>
+          <MediaQuery query="(max-width: 900px)">
+            <Paper
+              elevation={2}
+              component="section"
+              style={{
+                width: "100%",
+                marginBottom: -8,
+                paddingTop: theme.spacing(6),
+                paddingBottom: theme.spacing(6),
+                paddingLeft: theme.spacing(4),
+                paddingRight: theme.spacing(4),
+              }}
+            >
+              <Typography variant="h3">
+                Please orient your device in landscape mode to view our project
+                timeline.
+              </Typography>
+            </Paper>
+          </MediaQuery>
         </section>
       </section>
     );
@@ -306,18 +441,7 @@ const LandingGridContent = (classes, theme) => {
 
 const AboutSectionContent = (classes, theme) => {
   return (
-    <Paper
-      elevation={2}
-      component="section"
-      style={{
-        width: "100%",
-        marginBottom: -8,
-        paddingTop: theme.spacing(6),
-        paddingBottom: theme.spacing(6),
-        paddingLeft: theme.spacing(40),
-        paddingRight: theme.spacing(40),
-      }}
-    >
+    <>
       <Typography variant="h2" className={classes.mainTitle}>
         <InfoIcon
           size={56}
@@ -334,7 +458,7 @@ const AboutSectionContent = (classes, theme) => {
         className={classes.largeSubtitle}
       >
         Quantify is a project created and maintained by two students:{" "}
-        <ExternalLink url="https://github.com/JaredTheWolfy">
+        <ExternalLink url="https://github.com/JaredTheWolf">
           'Jared'
         </ExternalLink>{" "}
         and{" "}
@@ -379,33 +503,13 @@ const AboutSectionContent = (classes, theme) => {
         . Any repositories other repositories created by Quantify on their
         GitHub are license-free unless otherwise stated.
       </Typography>
-    </Paper>
+    </>
   );
 };
 
 const TimelineSectionContent = (classes, theme) => {
-  const events = [
-    { ts: "2018-08", text: "Registred" },
-    { ts: "2017-09-16T12:21:46.587Z", text: "Clicked Cart" },
-    { ts: "2017-09-16T12:20:46.587Z", text: "Clicked Checkout" },
-    { ts: "2017-09-17T12:22:46.587Z", text: "Logged in" },
-    { ts: "2017-09-17T12:21:46.587Z", text: "Clicked Home Page" },
-    { ts: "2017-09-17T12:20:46.587Z", text: "Edited Profile" },
-  ];
-
   return (
-    <Paper
-      elevation={2}
-      component="section"
-      style={{
-        width: "100%",
-        marginBottom: -8,
-        paddingTop: theme.spacing(6),
-        paddingBottom: theme.spacing(6),
-        paddingLeft: theme.spacing(40),
-        paddingRight: theme.spacing(40),
-      }}
-    >
+    <>
       <Typography variant="h2" className={classes.mainTitle}>
         <TimelineIcon
           size={56}
@@ -415,42 +519,6 @@ const TimelineSectionContent = (classes, theme) => {
         Progress Timeline
       </Typography>
       <br />
-      {/* <VerticalTimeline>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="Sep 2018"
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          icon={<StartProjectIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">Project created</h3>
-          <h4 className="vertical-timeline-element-subtitle">
-            on the XDA Forums
-          </h4>
-          <p>
-            Jared created the Wear24 NFC Project to port Google Pay to his watch
-            on the XDA Forums
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="Jan 2019"
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          icon={<CollaborateIcon />}
-        >
-          <h3 className="vertical-timeline-element-title">
-            
-          </h3>
-          <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-          <p>
-            davwheat heard about the project on the XDA Developer Forums and
-            began to collaborate with Jared on the project.
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
-          icon={<StarIcon />}
-        />
-      </VerticalTimeline> */}
       <Timeline lineColor={"rgba(0,0,0,0.2)"}>
         <TimelineItem
           key="001"
@@ -459,8 +527,10 @@ const TimelineSectionContent = (classes, theme) => {
               elevation={8}
               style={{
                 float: "left",
-                width: "75%",
+                minWidth: "75%",
+                maxWidth: "75%",
                 padding: theme.spacing(2),
+                color: theme.palette.secondary.main,
               }}
             >
               <Typography variant="h6">September 2018</Typography>
@@ -469,8 +539,13 @@ const TimelineSectionContent = (classes, theme) => {
           dateInnerStyle={{ background: "rgba(0,0,0,0.6)", color: "#eee" }}
         >
           <Paper elevation={16} style={{ padding: theme.spacing(4) }}>
-            <Typography variant="h4">Project Started</Typography>
-            <Typography variant="subtitle1">
+            <Typography variant="h4" className={classes.timelineHeading}>
+              Project Started
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              className={classes.timelineSubheading}
+            >
               The Wear24 NFC project was born
             </Typography>
             <Typography variant="body1">
@@ -488,6 +563,7 @@ const TimelineSectionContent = (classes, theme) => {
                 float: "left",
                 width: "75%",
                 padding: theme.spacing(2),
+                color: theme.palette.secondary.main,
               }}
             >
               <Typography variant="h6">January 2019</Typography>
@@ -496,8 +572,15 @@ const TimelineSectionContent = (classes, theme) => {
           dateInnerStyle={{ background: "rgba(0,0,0,0.6)", color: "#eee" }}
         >
           <Paper elevation={16} style={{ padding: theme.spacing(4) }}>
-            <Typography variant="h4">davwheat joined</Typography>
-            <Typography variant="subtitle1" />
+            <Typography variant="h4" className={classes.timelineHeading}>
+              davwheat joined
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              className={classes.timelineSubheading}
+            >
+              More hands on deck!
+            </Typography>
             <Typography variant="body1">
               After buying his own Wear24, davwheat heard about the project on
               the XDA Developer Forums and began to collaborate with Jared on
@@ -514,6 +597,7 @@ const TimelineSectionContent = (classes, theme) => {
                 float: "left",
                 width: "75%",
                 padding: theme.spacing(2),
+                color: theme.palette.secondary.main,
               }}
             >
               <Typography variant="h6">February/March 2019</Typography>
@@ -522,8 +606,15 @@ const TimelineSectionContent = (classes, theme) => {
           dateInnerStyle={{ background: "rgba(0,0,0,0.6)", color: "#eee" }}
         >
           <Paper elevation={16} style={{ padding: theme.spacing(4) }}>
-            <Typography variant="h4">Building Kernel</Typography>
-            <Typography variant="subtitle1">Working Dorado Kernel</Typography>
+            <Typography variant="h4" className={classes.timelineHeading}>
+              Building Kernel
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              className={classes.timelineSubheading}
+            >
+              Working Dorado Kernel
+            </Typography>
             <Typography variant="body1">
               Using the Android Open Source Project and Quanta's dorado source
               files, we built our own Android Kernel for the Wear24 with several
@@ -540,6 +631,7 @@ const TimelineSectionContent = (classes, theme) => {
                 float: "left",
                 width: "75%",
                 padding: theme.spacing(2),
+                color: theme.palette.secondary.main,
               }}
             >
               <Typography variant="h6">Q3/Q4 2019</Typography>
@@ -548,8 +640,13 @@ const TimelineSectionContent = (classes, theme) => {
           dateInnerStyle={{ background: "rgba(0,0,0,0.6)", color: "#eee" }}
         >
           <Paper elevation={16} style={{ padding: theme.spacing(4) }}>
-            <Typography variant="h4">Building ROM</Typography>
-            <Typography variant="subtitle1">
+            <Typography variant="h4" className={classes.timelineHeading}>
+              Building ROM
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              className={classes.timelineSubheading}
+            >
               Working NFC ROM &amp; Kernel
             </Typography>
             <Typography variant="body1">
@@ -560,7 +657,7 @@ const TimelineSectionContent = (classes, theme) => {
           </Paper>
         </TimelineItem>
       </Timeline>
-    </Paper>
+    </>
   );
 };
 
