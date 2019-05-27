@@ -162,6 +162,7 @@ class DocumentationHandler extends Component {
             " "
           )}
           elevation={4}
+          style={{ marginBottom: theme.spacing(2) }}
         >
           <DocumentationPage
             page={content === "" ? "# Loading documentation..." : content}

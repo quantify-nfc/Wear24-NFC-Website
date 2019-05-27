@@ -12,3 +12,5 @@ export const SIGN_IN = "/signin";
 export const ADMIN = "/admin";
 
 export const COOKIE_POLICY = "/cookies";
+
+export const ACKNOWLEDGMENTS = "/acknowledgments";

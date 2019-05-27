@@ -25,7 +25,8 @@ import DownloadPage from "./pages/Download";
 import RecommendedAppsPage from "./pages/RecommendedApps";
 import DocumentationPage from "./pages/Documentation";
 import { CookiesPage } from "./pages/Policies/";
-import SignInScreen from "./pages/SignIn";
+// import SignInScreen from "./pages/SignIn";
+import AcknowledgmentsPage from "./pages/Acknowledgments";
 
 import FeedbackIcon from "mdi-react/FeedbackOutlineIcon";
 
@@ -162,7 +163,7 @@ class App extends Component {
 
     let routers = undefined;
 
-    FirebaseCommon.Messaging.GetPermission();
+    // FirebaseCommon.Messaging.GetPermission();
 
     switch (getSubdomain()) {
       default:
@@ -196,15 +197,20 @@ class App extends Component {
               path={ROUTES.COOKIE_POLICY}
               component={CookiesPage}
             />
-            <Route
+            {/* <Route
               exact={true}
               path={ROUTES.SIGN_IN}
               component={SignInScreen}
-            />
+            /> */}
             <Route
               exact={true}
               path={ROUTES.RECOMMENDED_APPS}
               component={RecommendedAppsPage}
+            />
+            <Route
+              exact={true}
+              path={ROUTES.ACKNOWLEDGMENTS}
+              component={AcknowledgmentsPage}
             />
             <Route component={Error404} />
           </Switch>

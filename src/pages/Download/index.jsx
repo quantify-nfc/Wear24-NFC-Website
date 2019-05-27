@@ -95,7 +95,7 @@ class DownloadsPage extends Component {
 
 const DownloadContent = (classes, theme) => {
   return (
-    <section>
+    <section style={{ marginBottom: theme.spacing(1) }}>
       <Typography variant="h3" className={classes.mainTitle}>
         <DownloadIcon
           size={42}

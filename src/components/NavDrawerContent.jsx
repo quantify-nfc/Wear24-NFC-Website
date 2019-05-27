@@ -17,6 +17,7 @@ import ForumIcon from "mdi-react/ForumOutlineIcon";
 import DownloadIcon from "mdi-react/DownloadOutlineIcon";
 import BookIcon from "mdi-react/BookOutlineIcon";
 import AndroidIcon from "mdi-react/AndroidIcon";
+import AcknowledgmentsIcon from "mdi-react/AccountGroupOutlineIcon";
 
 const menuContent = [
   [{ text: "Home", url: ROUTES.HOME, icon: <HomeIcon /> }],
@@ -34,6 +35,13 @@ const menuContent = [
       text: "Recommended Apps",
       url: ROUTES.RECOMMENDED_APPS,
       icon: <AndroidIcon />,
+    },
+  ],
+  [
+    {
+      text: "Acknowledgments",
+      url: ROUTES.ACKNOWLEDGMENTS,
+      icon: <AcknowledgmentsIcon />,
     },
   ],
 ];
@@ -66,7 +74,7 @@ class NavDrawerContent extends Component {
               ))}
             </List>
 
-            {0 < menuContent.length ? <Divider /> : null}
+            {menuContent.length > 0 ? <Divider /> : null}
           </>
         ))}
       </>
