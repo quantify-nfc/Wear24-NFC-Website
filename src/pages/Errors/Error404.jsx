@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Typography, Paper, withStyles } from "@material-ui/core";
+import { Paper, withStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
 import BetterLink from "../../components/Link";
 

@@ -4,7 +4,7 @@ import {
   Paper,
   Divider,
   Typography,
-  MuiThemeProvider,
+  // MuiThemeProvider,
 } from "@material-ui/core";
 
 import * as ROUTES from "../constants/routes";

@@ -32,7 +32,7 @@ import FeedbackIcon from "mdi-react/FeedbackOutlineIcon";
 
 import { Error404 } from "./pages/Errors";
 
-import * as FirebaseCommon from "./firebase/common";
+// import * as FirebaseCommon from "./firebase/common";
 
 import * as CookieFunctions from "./cookies";
 import swal from "sweetalert2";

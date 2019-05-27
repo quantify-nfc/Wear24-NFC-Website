@@ -31,8 +31,6 @@ import HelperIcon from "mdi-react/AccountHelpOutlineIcon";
 import DonatorIcon from "mdi-react/CurrencyUsdIcon";
 import ThanksIcon from "mdi-react/ThumbsUpOutlineIcon";
 
-import ExternalLink from "../../components/ExternalLink";
-
 const styles = (theme) => ({
   fullWidth: {
     width: "100%",
