@@ -23,9 +23,9 @@ import InfoIcon from "mdi-react/InfoOutlineIcon";
 import ForumIcon from "mdi-react/ForumOutlineIcon";
 import TimelineIcon from "mdi-react/TimelineOutlineIcon";
 
-import CollaborateIcon from "mdi-react/AccountMultipleOutlineIcon";
-import StartProjectIcon from "mdi-react/EditOutlineIcon";
-import StarIcon from "mdi-react/StarOutlineIcon";
+// import CollaborateIcon from "mdi-react/AccountMultipleOutlineIcon";
+// import StartProjectIcon from "mdi-react/EditOutlineIcon";
+// import StarIcon from "mdi-react/StarOutlineIcon";
 
 import { Timeline, TimelineItem } from "vertical-timeline-component-for-react";
 

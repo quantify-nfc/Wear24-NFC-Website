@@ -11,8 +11,8 @@ import {
   List,
   ListItem,
   ListItemText,
-  ListItemAvatar,
-  Avatar,
+  // ListItemAvatar,
+  // Avatar,
   IconButton,
   ListItemSecondaryAction,
   Tooltip,
@@ -24,7 +24,7 @@ import DiscordIcon from "mdi-react/DiscordIcon";
 import GithubIcon from "mdi-react/GithubCircleIcon";
 import EmailIcon from "mdi-react/EmailOutlineIcon";
 
-import PersonIcon from "mdi-react/PersonOutlineIcon";
+// import PersonIcon from "mdi-react/PersonOutlineIcon";
 import PeopleIcon from "mdi-react/AccountGroupOutlineIcon";
 import CodeIcon from "mdi-react/CodeTagsIcon";
 import HelperIcon from "mdi-react/AccountHelpOutlineIcon";
@@ -52,7 +52,7 @@ const styles = (theme) => ({
     width: "85%",
     margin: "auto",
     background:
-      theme.palette.type == "dark"
+      theme.palette.type === "dark"
         ? "rgba(255,255,255,0.05)"
         : "rgba(0,0,0,0.07)",
     borderRadius: theme.spacing(1),
@@ -169,6 +169,11 @@ const AcknowledgmentContent = (classes, theme) => {
         helped us, they all deserve a special thanks from us.
       </Typography>
       <br />
+      <Typography variant="body2" paragraph>
+        Discord usernames are accurate as of writing. Nothing is stopping these
+        people changing their usernames and I can't easily track the changes.
+      </Typography>
+      <br />
       <Typography variant="h3">
         <CodeIcon
           size={48}
@@ -263,6 +268,14 @@ const OtherHelpers = [
     githubUrl: null,
     email: null,
   },
+  {
+    name: '"Timo"',
+    nickname: "All-round helping hand for Kernel",
+    redditUrl: "https://reddit.com/u/iCapa",
+    discordUsername: "Timo#2874",
+    githubUrl: null,
+    email: null,
+  },
 ];
 
 const SpecialThanks = [
@@ -291,10 +304,6 @@ const SpecialThanks = [
     email: null,
   },
 ];
-
-function ListItemLink(props) {
-  return <ListItem button component={ExternalLink} {...props} />;
-}
 
 const CreateList = (items, classes, theme) => {
   return (
