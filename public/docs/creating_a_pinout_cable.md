@@ -34,8 +34,8 @@ See the table below to see what pins connects to what test point. This will also
 | USB Pin | Test Point |
 | ------- | ---------- |
 | 5V      | TP1        |
-| Data +  | TP2        |
-| Data -  | TP3        |
+| Data -  | TP2        |
+| Data +  | TP3        |
 | Ground  | TP4        |
 
 ## Next Steps

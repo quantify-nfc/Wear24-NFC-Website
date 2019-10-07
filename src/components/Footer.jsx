@@ -34,7 +34,7 @@ class Footer extends Component {
               text="Privacy &amp; Cookies Policy"
             />
             <Typography variant="body2" style={{ marginTop: 16 }}>
-              v2.4.1 - Created by{" "}
+              v2.4.2 - Created by{" "}
               <ExternalLink url="https://github.com/davwheat">
                 davwheat
               </ExternalLink>{" "}
