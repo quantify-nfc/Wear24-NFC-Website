@@ -16,7 +16,7 @@
     "clsx": "^1.0.4",
     "firebase": "^5.11.1",
     "firebaseui": "^3.6.1",
-    "gsap": "^2.1.2",
+    "gsap": "^3.6.0",
     "jquery": "^3.4.1",
     "manrope": "^2.0.0",
     "markdown-to-jsx": "^6.9.4",
